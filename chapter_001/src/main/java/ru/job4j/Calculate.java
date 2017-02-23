@@ -8,10 +8,10 @@ package ru.job4j;
 public class Calculate{
 	
 	/**
-	*метод main выводит на экран строку "Hello, World!"
+	*метод main выводит на экран строку "Hello World"
 	*@param args - массив строку
 	*/
     public static void main(String[] args){
-       System.out.println("Hello, world!");
+       System.out.println("Hello World");
     }
 }
