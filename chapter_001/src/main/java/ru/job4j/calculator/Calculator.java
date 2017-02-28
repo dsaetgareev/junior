@@ -35,7 +35,6 @@ public class Calculator {
 	*/
 	public void add(double first, double second) {
 		this.result = first + second;
-		getResult();
 	}
 
 	/**
@@ -46,7 +45,6 @@ public class Calculator {
 	*/
 	public void substruct(double first, double second) {
 		this.result = first - second;
-		getResult();
 	}
 
 	/**
@@ -59,7 +57,6 @@ public class Calculator {
 		if (second != 0) {
 			this.result = first / second;
 		}
-		getResult();
 	}
 
 	/**
@@ -70,6 +67,5 @@ public class Calculator {
 	*/
 	public void multiple(double first, double second) {
 		this.result = first * second;
-		getResult();
 	}
 }

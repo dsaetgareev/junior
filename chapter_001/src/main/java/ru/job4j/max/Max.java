@@ -18,4 +18,14 @@ public class Max {
 	public double max(double first, double second) {
 		return (first > second ? first : second);
 	}
+
+	/**method max return max value.
+	*@param first - value
+	*@param second - value
+	*@param third - value
+	*@return max
+	*/
+	public double max(double first, double second, double third) {
+		return (first > max(second, third) ? first : max(second, third));
+	}
 }

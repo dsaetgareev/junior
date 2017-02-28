@@ -20,4 +20,12 @@ public class MaxTest {
 		Max value = new Max();
 		assertThat(value.max(3, 4), is(4.0));
 	}
+
+	/**method whenThreeValuesThenMax().
+	*/
+	@Test
+	public void whenThreeValuesThenMax() {
+		Max value = new Max();
+		assertThat(value.max(3, 4, 8), is(8.0));
+	}
 }
