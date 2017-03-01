@@ -25,7 +25,11 @@ public class Paint {
 				}
 			}
 			for (int k = 0; k < i; k++) {
-				build.append(" ^");
+				if (k == (i - 1)) {
+					build.append(" ^" + "\n");
+				} else {
+					build.append(" ^");
+				}
 			}
 		}
 			return build.toString();

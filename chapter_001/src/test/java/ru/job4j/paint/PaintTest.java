@@ -20,6 +20,6 @@ public class PaintTest {
 	@Test
 	public void whenHThenPiramid() {
 		Paint paint = new Paint();
-		assertThat(paint.piramid(2), is("  ^ ^ ^"));
+		assertThat(paint.piramid(2), is("  ^\n ^ ^\n"));
 	}
 }
