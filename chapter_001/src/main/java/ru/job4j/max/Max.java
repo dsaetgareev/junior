@@ -26,6 +26,7 @@ public class Max {
 	*@return max
 	*/
 	public double max(double first, double second, double third) {
-		return (first > max(second, third) ? first : max(second, third));
+		//return (first > max(second, third) ? first : max(second, third));
+		return max(first, max(second, third));
 	}
 }
