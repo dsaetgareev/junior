@@ -19,6 +19,6 @@ public class TurnTest {
 	public void whenArrayThenBackArray() {
 		Turn turn = new Turn();
 		int[] array = {1, 2, 3};
-		assertThat(turn.back(array), is("[<3>, <2>, <1>]"));
+		assertThat(turn.back(array), is(new int[] {3, 2, 1}));
 	}
 }

@@ -7,3 +7,4 @@
 *@version 1.0
 *@since 27.02.2017
 */
+package ru.job4j.triangle;
