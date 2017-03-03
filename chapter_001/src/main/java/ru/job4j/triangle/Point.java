@@ -10,11 +10,13 @@ package ru.job4j.triangle;
 
 public class Point {
 /**
-*TODO.
+*
+*coordinate x.
 */
 private double x;
 /**
-*TODO.
+*
+coordinate y.
 */
 private double y;
 
@@ -23,7 +25,7 @@ private double y;
 	*@param x -value
 	*@param y -value
 	*/
-	Point(double x, double y) {
+	public Point(double x, double y) {
 	this.x = x;
 	this.y = y;
 	}

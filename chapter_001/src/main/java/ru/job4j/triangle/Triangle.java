@@ -10,15 +10,15 @@ package ru.job4j.triangle;
 
 public class Triangle {
 	/**
-	*TODO.
+	*Point a.
 	*/
 	private Point a;
 	/**
-	*TODO.
+	*Point b.
 	*/
 	private Point b;
 	/**
-	*TODO.
+	*Point c.
 	*/
 	private Point c;
 
@@ -45,10 +45,10 @@ public class Triangle {
 	double sideA = a.distanceTo(b);
 	double sideB = b.distanceTo(c);
 	double sideC = c.distanceTo(a);
+	double per = (sideA + sideB + sideC) / 2;
 	if (sideA + sideB > sideC && sideB + sideC > sideA && sideC + sideA > sideB) {
-		areaTriangle = Math.sqrt(((sideA + sideB + sideC) / 2) * ((sideA + sideB + sideC) / 2 - sideA)
-		* ((sideA + sideB + sideC) / 2 - sideB) * ((sideA + sideB + sideC) / 2 - sideC));
-		}
+		areaTriangle = Math.sqrt(per * (per - sideA) * (per - sideB) * (per - sideC));
+	}
 		return areaTriangle;
 	}
 }
