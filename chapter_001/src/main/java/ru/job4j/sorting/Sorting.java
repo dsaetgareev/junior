@@ -18,12 +18,12 @@ public class Sorting {
 		 *int var - temporary variable.
 		 */
 		 int var;
-		 for (int j = 0; j < value.length - 1; j++) {
-			 for (int i = value.length - 1; i > j; i--) {
-				 if (value[i] < value[i - 1]) {
+		 for (int j = value.length - 1; j >= 0; j--) {
+			 for (int i = 0; i < j; i++) {
+				 if (value[i] > value[i + 1]) {
 				 var = value[i];
-				 value[i] = value[i - 1];
-				 value[i - 1] = var;
+				 value[i] = value[i + 1];
+				 value[i + 1] = var;
 				 }
 			 }
 		 }
