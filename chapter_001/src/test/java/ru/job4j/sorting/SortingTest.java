@@ -22,14 +22,4 @@ public class SortingTest {
 		int[] afterSort = {1, 2, 3};
 		assertThat(obj.sort(array), is(afterSort));
 	}
-	/**
-	*thread void whenArrayThenSortOptimArray().
-	*/
-	@Test
-	public void whenArrayThenSortOptimArray() {
-		Sorting obj = new Sorting();
-		int[] array = {2, 1, 3};
-		int[] afterSort = {1, 2, 3};
-		assertThat(obj.sortOptim(array), is(afterSort));
-	}
 }
