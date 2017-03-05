@@ -5,62 +5,35 @@ import java.util.Arrays;
 *Class RemoveDubl has threads
 *that remove dublicates.
 *@author Dinis Saetgareev (dinis0086@mail.ru)
-*@version 2.0
-*@since 04.03.2017
+*@version 3.0
+*@since 05.03.2017
 */
 
 public class RemoveDubl {
 
 	/**
-	*thread String[] dublNull(String[] array),
+	*thread String[] removeDuble(String[] array),
 	*draws dublicates null.
 	*@param array - array
 	*@return array
 	*/
-	public String[] dublNull(String[] array) {
-		for (int i = 0; i != array.length; i++) {
-			for (int j = i + 1; j != array.length; j++) {
-				if (array[i] != null && array[j] != null && array[i].equals(array[j])) {
-					array[j] = null;
-				}
-			}
-		}
-		return array;
-	}
-
-	/**
-	*thread String[] sortNull(String[] array)
-	*bubble null.
-	*@param array - array
-	*@return array
-	*/
-	public String[] sortNull(String[] array) {
-		for (int j = array.length - 1; j >= 0; j--) {
-			for (int i = 0; i < j; i++) {
-				if (array[i] == null) {
-					array[i] = array[i + 1];
-					array[i + 1] = null;
-				}
-			}
-		}
-		return array;
-	}
-
-	/**
-	*thread String[] arrNoDubl(String[] array)
-	*remove null.
-	*@param array - array
-	*@return array
-	*/
-	public String[] arrayNoDubl(String[] array) {
+	public String[] removeDuble(String[] array) {
+		int end = array.length;
 		int count = 0;
-		for (String elem : array) {
-			if (elem == null) {
-				count++;
+		for (int i = 0; i < end - 1; i++) {
+			for (int j = i + 1; j < array.length; j++) {
+				if (array[i].equals(array[j])) {
+					String var;
+					var = array[j];
+					array[j] = array[end - 1];
+					array[end - 1] = var;
+					end--;
+					count++;
+				}
 			}
 		}
 		int aLength = array.length - count;
-		String[] arrNoDubl = Arrays.copyOf(array, aLength);
-		return arrNoDubl;
+		String[] arCopy = Arrays.copyOf(array, aLength);
+		return arCopy;
 	}
 }
