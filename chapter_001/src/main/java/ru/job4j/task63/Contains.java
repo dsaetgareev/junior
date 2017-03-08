@@ -8,12 +8,13 @@ package ru.job4j.task63;
 */
 
 public class Contains {
-	
+
 	/**
 	*method boolean contains(String origin, String sub),
 	*checking String origin contains String sub.
 	*@param origin - string
 	*@param sub - string
+	*@return true or fals
 	*/
 	public boolean contains(String origin, String sub) {
 		char[] arOrigin = origin.toCharArray();
@@ -30,11 +31,10 @@ public class Contains {
 					}
 				}
 				if (arSub.length == count) {
-				return true;			
-				}				
-			}			
+					return true;
+				}
+			}
 		}
-		
 		return false;
 	}
 }

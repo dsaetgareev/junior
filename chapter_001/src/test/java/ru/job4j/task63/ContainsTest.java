@@ -1,4 +1,5 @@
 package ru.job4j.task63;
+
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -13,10 +14,10 @@ public class ContainsTest {
 	*method whenStringOriginAndSubThenOriginContainsSub().
 	*/
 	@Test
-	public void whenStringOriginAndSubThenOriginContainsSub();
-	Contains cont = new Contains();
-	String origin = "contains";
-	String sub = "ins";
-	boolean text = true;
-	assertThat(cont.contains(origin, sub), is(text));
-}	
+	public void whenStringOriginAndSubThenOriginContainsSub() {
+		Contains cont = new Contains();
+		String origin = "contains";
+		String sub = "ins";
+		assertThat(cont.contains(origin, sub), is(true));
+	}
+}
