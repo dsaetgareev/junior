@@ -20,6 +20,7 @@ public class Contains {
 		char[] arOrigin = origin.toCharArray();
 		char[] arSub = sub.toCharArray();
 		int count = 0;
+		boolean aContains = false;
 		for (int i = 0; i <= arOrigin.length - arSub.length; i++) {
 			count = 0;
 			if (arOrigin[i] == (arSub[0])) {
@@ -29,10 +30,11 @@ public class Contains {
 					}
 				}
 				if (arSub.length == count) {
-					return true;
+					aContains = true;
+					break;
 				}
 			}
 		}
-		return false;
+		return aContains;
 	}
 }
