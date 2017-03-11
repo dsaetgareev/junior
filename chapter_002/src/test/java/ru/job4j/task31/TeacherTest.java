@@ -14,7 +14,7 @@ public class TeacherTest {
      */
     @Test
     public void whenLearnThenEducation() {
-        Professional prof = new Professional("Den", 30, "engineer", 10, 20, 30, 40);
+        Professional prof = new Engineer("Den", 30, "engineer", 10, 20, 30, 40);
         Teacher teacher = new Teacher("Alan", 29, "teacher", 30, 40, 50, 60);
         teacher.learn(prof);
         assertThat(prof.getEducation(), is(40));
