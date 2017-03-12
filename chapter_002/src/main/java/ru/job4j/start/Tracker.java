@@ -29,7 +29,7 @@ public class Tracker {
      * @return item - Item.
      */
     public Item add(Item item) {
-        item.setId(String.valueOf(rn.nextInt()));
+        item.setId(String.valueOf(System.currentTimeMillis() + rn.nextInt()));
         this.items[position++] = item;
         return item;
     }
@@ -71,6 +71,7 @@ public class Tracker {
         for (int i = 0; i != position; i++) {
             if (this.items[i] != null && this.items[i].getId().equals(item.getId())) {
                 this.items[i] = null;
+                position--;
             }
         }
     }
@@ -80,7 +81,15 @@ public class Tracker {
      * @return this.items
      */
     public Item[] findAll() {
-        return this.items;
+        Item[] result = new Item[position];
+        int count = 0;
+        for (int i = 0; i != position; i++) {
+            if (this.items[i] != null) {
+                result[count] = this.items[i];
+                count++;
+            }
+        }
+        return result;
     }
 
     /**
@@ -105,15 +114,14 @@ public class Tracker {
      */
     public Item[] findByName(String key) {
         Item[] result = new Item[position];
-        int j = 0;
+        int count = 0;
         for (int i = 0; i != position; i++) {
             if (this.items[i] != null && (this.items[i].getName().contains(key) || this.items[i].getDesc().contains(key)
                     || this.items[i].getComments().contains(key))) {
-                result[j] = this.items[i];
-                j++;
+                result[count] = this.items[i];
+                count++;
             }
         }
-        Item[] copy = Arrays.copyOf(result, j);
-        return copy;
+        return Arrays.copyOf(result, count);
     }
 }
