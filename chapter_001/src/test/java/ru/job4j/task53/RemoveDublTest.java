@@ -14,11 +14,11 @@ import static org.junit.Assert.assertThat;
 public class RemoveDublTest {
 
 	/**
-	*thread whenArrayWithDublicatesThenArrayWithoutDublibcates()
+	*thread whenArrayWithDublicatesThenArrayWithoutDublicates()
 	*checking String[] dublNull(String[] array).
 	*/
 	@Test
-	public void whenArrayWithDublicatesThenArrayWithoutDublibcates() {
+	public void whenArrayWithDublicatesThenArrayWithoutDublicates() {
 		RemoveDubl obj = new RemoveDubl();
 		String[] array = {"1", "1", "2", "3", "2", "3"};
 		String[] afterAr = {"1", "3", "2"};
