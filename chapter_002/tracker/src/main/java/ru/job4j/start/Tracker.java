@@ -15,9 +15,17 @@ public class Tracker {
      */
     private Item[] items = new Item[10];
     /**
+     * array Item[] deleteItems.
+     */
+    private Item[] deleteItems = new Item[10];
+    /**
      * int position.
      */
     private int position = 0;
+    /**
+     * int deletePosition - counter for Item[] deleteItem.
+     */
+    private int deletePosition = 0;
     /**
      * rn - random value.
      */
@@ -29,7 +37,7 @@ public class Tracker {
      * @return item - Item.
      */
     public Item add(Item item) {
-        item.setId(String.valueOf(System.currentTimeMillis() + rn.nextInt()));
+        item.setId(String.valueOf(rn.nextInt(1000)));
         this.items[position++] = item;
         return item;
     }
@@ -40,14 +48,6 @@ public class Tracker {
      */
     public Item[] getItems() {
         return this.items;
-    }
-
-    /**
-     * method setItems(Item[] items).
-     * @param items - Item[].
-     */
-    public void setItems(Item[] items) {
-        this.items = items;
     }
 
     /**
@@ -69,9 +69,11 @@ public class Tracker {
      */
     public void delete(Item item) {
         for (int i = 0; i != position; i++) {
-            if (this.items[i] != null && this.items[i].getId().equals(item.getId())) {
+            if (this.items[i] != null && item.getId().equals(this.items[i].getId())) {
+                Item tempItem = this.items[i];
                 this.items[i] = null;
-                position--;
+                this.deleteItems[deletePosition++] = tempItem;
+                break;
             }
         }
     }
@@ -90,6 +92,35 @@ public class Tracker {
             }
         }
         return result;
+    }
+    /**
+     * method Item[] findAllDeleteItems() return Item[].
+     * @return this.deleteItems - Item[]
+     */
+    public Item[] findAllDeleteItems() {
+        Item[] result = new Item[deletePosition];
+        int count = 0;
+        for (int i = 0; i != deletePosition; i++) {
+            if (this.deleteItems[i] != null) {
+                result[count] = this.deleteItems[i];
+                count++;
+            }
+        }
+        return result;
+    }
+    /**
+     * method restoreById(String id) restore item.
+     * @param id - String
+     */
+    public void restoreById(String id) {
+        for (int i = 0; i != deletePosition; i++) {
+            if (this.deleteItems[i] != null && id.equals(this.deleteItems[i].getId())) {
+                Item tempItem = this.deleteItems[i];
+                this.deleteItems[i] = null;
+                this.items[position++] = tempItem;
+                break;
+            }
+        }
     }
 
     /**
