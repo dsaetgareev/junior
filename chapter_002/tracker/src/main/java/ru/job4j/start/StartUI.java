@@ -16,7 +16,7 @@ public class StartUI {
      * Constructor StartUI(Input input).
      * @param input - Input
      */
-    protected StartUI(Input input) {
+    public StartUI(Input input) {
         this.input = input;
     }
     /**
@@ -24,13 +24,28 @@ public class StartUI {
      */
     public void init() {
         Tracker tracker = new Tracker();
-        TrackerMenu menu = new TrackerMenu(input, tracker);
-        menu.fillAction();
-        do {
-            menu.show();
-            int key = Integer.valueOf(input.ask("Select: "));
-            menu.select(key);
-        } while (!"y".equals(input.ask("Continue? any symbol. Exit? 'y' ")));
+        TrackerMenu menu;
+        String selectMenu = input.ask("English menu - enter 1.\nРусское меню - введите 2\n:___");
+        if (selectMenu.equals("1")) {
+            menu = new TrackerMenuEnglish(input, tracker);
+            menu.descriptionTracker();
+            menu.fillAction();
+            do {
+                menu.show();
+                int key = Integer.valueOf(input.ask("Select:__ "));
+                menu.select(key);
+            } while (!"exit".equals(input.ask("Continue? any symbol. Exit? 'exit':__ ")));
+        }
+        if (selectMenu.equals("2")) {
+            menu = new TrackerMenuRuss(input, tracker);
+            menu.descriptionTracker();
+            menu.fillAction();
+            do {
+                menu.show();
+                int key = Integer.valueOf(input.ask("Выбор:__ "));
+                menu.select(key);
+            } while (!"выход".equals(input.ask("Продолжить? любая клавиша. Выйти? 'выход':__ ")));
+        }
     }
     /**
      * method main.

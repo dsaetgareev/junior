@@ -51,6 +51,14 @@ public class Tracker {
     }
 
     /**
+     * method getDeleteItems().
+     * @return items - Item[]
+     */
+    public Item[] getDeleteItems() {
+        return this.deleteItems;
+    }
+
+    /**
      * method update(Item item) replaces item.
      * @param item - Item
      */
@@ -154,5 +162,18 @@ public class Tracker {
             }
         }
         return Arrays.copyOf(result, count);
+    }
+
+    /**
+     * method comment(String comments, String id) - finds item by id and add comment.
+     * @param comments - String comment
+     * @param id - String
+     */
+    public void comment(String comments, String id) {
+        for (int i = 0; i != position; i++) {
+            if (items[i] != null && id.equals(items[i].getId())) {
+                items[i].setComments(comments);
+            }
+        }
     }
 }
