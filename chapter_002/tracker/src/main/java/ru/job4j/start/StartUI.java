@@ -11,19 +11,24 @@ public class StartUI {
      * Input input.
      */
     private Input input;
+    /**
+     * Tracker tracker.
+     */
+    private Tracker tracker;
 
     /**
      * Constructor StartUI(Input input).
      * @param input - Input
+     * @param tracker - Tracker
      */
-    public StartUI(Input input) {
+    public StartUI(Input input, Tracker tracker) {
         this.input = input;
+        this.tracker = tracker;
     }
     /**
      * method init() displays a menu.
      */
     public void init() {
-        Tracker tracker = new Tracker();
         TrackerMenu menu;
         String selectMenu = input.ask("English menu - enter 1.\nРусское меню - введите 2\n:___");
         if (selectMenu.equals("1")) {
@@ -53,6 +58,7 @@ public class StartUI {
      */
     public static void main(String[] args) {
         ConsoleInput input = new ConsoleInput();
-        new StartUI(input).init();
+        Tracker tracker = new Tracker();
+        new StartUI(input, tracker).init();
     }
 }

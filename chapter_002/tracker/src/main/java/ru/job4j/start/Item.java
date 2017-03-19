@@ -123,4 +123,52 @@ public class Item {
     public void setComments(String comments) {
         this.comments = comments;
     }
+
+    /**
+     * Override hashCode().
+     * @return result - int
+     */
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (desc != null ? desc.hashCode() : 0);
+        result = 31 * result + (int) (create ^ (create >>> 32));
+        result = 31 * result + (comments != null ? comments.hashCode() : 0);
+        return result;
+    }
+
+    /**
+     * boolean equals(Object obj).
+     * @param item - Item
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        Item other = (Item) obj;
+        if (id != other.id) {
+            return false;
+        }
+        if (name != other.name) {
+            return false;
+        }
+        if (desc != other.desc) {
+            return false;
+        }
+        if (create != other.create) {
+            return false;
+        }
+        if (comments != other.comments) {
+            return false;
+        }
+        return true;
+    }
 }
