@@ -18,7 +18,7 @@ public class MenuLanguage {
     /**
      * Language[] languages - array Language.
      */
-    private Language[] languages = new Language[2];
+    private Language[] languages = new Language[3];
 
     /**
      * Constructor MenuLanguage(Input input, Tracker tracker).
@@ -35,7 +35,7 @@ public class MenuLanguage {
      * @return question - String
      */
     public String question() {
-        return "English menu - enter 0.\nРусское меню - введите 1\n:___";
+        return "English menu - enter 0.\nРусское меню - введите 1.\n Add new language 2.\n:___";
     }
     /**
      * void fillLanguage() - fills this.languages.
@@ -43,6 +43,7 @@ public class MenuLanguage {
     public void fillLanguage() {
         this.languages[0] = new EnglishLanguage();
         this.languages[1] = new RussLanguage();
+        this.languages[2] = new AnotherLanguage();
     }
 
     /**
