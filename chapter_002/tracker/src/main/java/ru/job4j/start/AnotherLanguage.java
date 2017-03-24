@@ -1,7 +1,7 @@
 package ru.job4j.start;
 
 /**
- * Created by dinis on 24.03.2017.
+ * class AnotherLanguage implements Language - has questions in only language.
  */
 public class AnotherLanguage implements Language {
     /**
@@ -51,6 +51,7 @@ public class AnotherLanguage implements Language {
     /**
      * fillAll - fill all methods.
      */
+    @Override
     public void fillAll() {
         this.instruction();
         this.fillLanguageTracker();
@@ -68,13 +69,14 @@ public class AnotherLanguage implements Language {
     /**
      * instruction how add language.
      */
-    public void instruction() {
+    private void instruction() {
         System.out.println("Using an interpreter translate\n phrases into your language.\n"
                 + " Only your language will be used later.");
     }
     /**
      * method fill a tracker questions.
      */
+    @Override
     public void fillLanguageTracker() {
         this.languageTracker[0] = this.input.ask("Select:_");
         this.languageTracker[1] = this.input.ask("Continue? any symbol. Exit? enter 'exit'___");
@@ -91,12 +93,14 @@ public class AnotherLanguage implements Language {
      * String[] getLanguageTracker().
      * @return LanguageTracker
      */
+    @Override
     public String[] getLanguageTracker() {
         return this.languageTracker;
     }
     /**
      * fill questions for AddAction.
      */
+    @Override
     public void fillLanguageAdd() {
         this.languageAdd[0] = input.ask("Add the new task.___");
         this.languageAdd[1] = input.ask("Please, enter the task's name: ___");
@@ -108,12 +112,14 @@ public class AnotherLanguage implements Language {
      * getLanguageAdd().
      * @return LanguageAdd
      */
+    @Override
     public String[] getLanguageAdd() {
         return this.languageAdd;
     }
     /**
      * method fill questions for ShowAction.
      */
+    @Override
     public void fillLanguageShow() {
         this.languageShow[0] = input.ask("Show items.___");
     }
@@ -121,12 +127,14 @@ public class AnotherLanguage implements Language {
      * getLanguageShow().
      * @return LanguageShow
      */
+    @Override
     public String[] getLanguageShow() {
         return this.languageShow;
     }
     /**
      * method fill questions for UpdateAction.
      */
+    @Override
     public void fillLanguageUpdate() {
         this.languageUpdate[0] = input.ask("Edit item.___");
         this.languageUpdate[1] = input.ask("Please, enter ID edited item: ___");
@@ -139,12 +147,14 @@ public class AnotherLanguage implements Language {
      * getLanguageUpdate().
      * @return LanguageUpdate
      */
+    @Override
     public String[] getLanguageUpdate() {
         return this.languageUpdate;
     }
     /**
      * fill questions for DeleteAction.
      */
+    @Override
     public void fillLanguageDelete() {
         this.languageDelete[0] = input.ask("Delete item.___");
         this.languageDelete[1] = input.ask("Please, enter ID deleted item's: ___");
@@ -153,12 +163,14 @@ public class AnotherLanguage implements Language {
      * getLanguageDelete().
      * @return LanguageDelete
      */
+    @Override
     public String[] getLanguageDelete() {
         return this.languageDelete;
     }
     /**
      * fill questions for ShowDeleteAction.
      */
+    @Override
     public void fillLanguageShowDelete() {
         this.languageShowDelete[0] = input.ask("Show deleted items.___");
     }
@@ -166,12 +178,14 @@ public class AnotherLanguage implements Language {
      * getLanguageShowDelete().
      * @return LanguageShowDelete
      */
+    @Override
     public String[] getLanguageShowDelete() {
         return this.languageShowDelete;
     }
     /**
      * fill questions for FindByIdAction.
      */
+    @Override
     public void fillLanguageFindById() {
         this.languageFindById[0] = input.ask("Find item by id.___");
         this.languageFindById[1] = input.ask("Please, enter ID item's find by id: ___");
@@ -180,12 +194,14 @@ public class AnotherLanguage implements Language {
      * getLanguageFindById().
      * @return LanguageFindById
      */
+    @Override
     public String[] getLanguageFindById() {
         return this.languageFindById;
     }
     /**
      * fill questions for FindByKeyAction.
      */
+    @Override
     public void fillLanguageFindByKey() {
         this.languageFindByKey[0] = input.ask("Find item by key.___");
         this.languageFindByKey[1] = input.ask("Please, enter ID item's find by key: ___");
@@ -194,12 +210,14 @@ public class AnotherLanguage implements Language {
      * getLanguageFindByKey().
      * @return LanguageFindByKey
      */
+    @Override
     public String[] getLanguageFindByKey() {
         return this.languageFindByKey;
     }
     /**
      * fill questions RestoreAction.
      */
+    @Override
     public void fillLanguageRestore() {
         this.languageRestore[0] = input.ask("Restore item.___");
         this.languageRestore[1] = input.ask("Please, enter ID restore item's: ___");
@@ -208,12 +226,14 @@ public class AnotherLanguage implements Language {
      * getLanguageRestore().
      * @return LanguageRestore
      */
+    @Override
     public String[] getLanguageRestore() {
         return this.languageRestore;
     }
     /**
      * fill questions AddCommentAction.
      */
+    @Override
     public void fillLanguageAddComment() {
         this.languageAddComment[0] = input.ask("Add new comment.___");
         this.languageAddComment[1] = input.ask("Please, enter ID item's: ___");
@@ -223,6 +243,7 @@ public class AnotherLanguage implements Language {
      * getLanguageAddComment().
      * @return LanguageAddComment
      */
+    @Override
     public String[] getLanguageAddComment() {
         return this.languageAddComment;
     }

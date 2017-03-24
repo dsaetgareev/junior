@@ -32,6 +32,7 @@ public class StubInput implements Input {
      * @param question - menu question
      * @return - user answer.
      */
+    @Override
     public String ask(String question) {
         System.out.println(question);
         System.out.println(answers[position]);
@@ -45,6 +46,7 @@ public class StubInput implements Input {
      * @param range    - int[]
      * @return ask - int
      */
+    @Override
     public int ask(String question, int[] range) {
         int value = Integer.valueOf(ask(question));
             for (int key : range) {

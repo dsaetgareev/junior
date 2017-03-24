@@ -19,6 +19,7 @@ public class ConsoleInput implements Input {
      * @param question - menu question
      * @return - user answer.
      */
+    @Override
     public String ask(String question) {
         System.out.print(question);
         return scanner.nextLine();
@@ -30,6 +31,7 @@ public class ConsoleInput implements Input {
      * @param range - int[]
      * @return value - int
      */
+    @Override
     public int ask(String question, int[] range)  {
         int key = Integer.valueOf(ask(question));
         boolean exist = false;

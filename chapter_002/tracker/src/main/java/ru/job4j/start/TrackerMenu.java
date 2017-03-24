@@ -1,5 +1,7 @@
 package ru.job4j.start;
 
+import jdk.nashorn.internal.objects.annotations.Constructor;
+
 /**
  * class TrackerMenu.
  * @author Dinis Saetgareev (dinis0086@mail.ru)
@@ -115,6 +117,7 @@ public class TrackerMenu {
          * method key() return key for menu.
          * @return key - int
          */
+        @Override
         public int key() {
             return 0;
         }
@@ -130,6 +133,7 @@ public class TrackerMenu {
          * @param input - Input
          * @param tracker - Tracker
          */
+        @Override
         public void execute(Input input, Tracker tracker) {
             String name = input.ask(lang.getLanguageAdd()[1]);
             String desc = input.ask(lang.getLanguageAdd()[2]);
@@ -143,6 +147,7 @@ public class TrackerMenu {
          * method String info() return info.
          * @return info - String
          */
+        @Override
         public String info() {
             return String.format("[%s] %s ", this.key(), super.info());
         }
@@ -162,6 +167,7 @@ public class TrackerMenu {
          * method key() return key for menu.
          * @return key - int
          */
+        @Override
         public int key() {
             return 1;
         }
@@ -170,6 +176,7 @@ public class TrackerMenu {
          * @param input - Input
          * @param tracker - Tracker
          */
+        @Override
         public void execute(Input input, Tracker tracker) {
             Item[] items = tracker.findAll();
             for (Item item : items) {
@@ -184,7 +191,7 @@ public class TrackerMenu {
         /**
          * method String info() return info.
          * @return info - String
-         */
+         */@Override
         public String info() {
             return String.format("[%s] %s ", this.key(), super.info());
         }
@@ -204,6 +211,7 @@ public class TrackerMenu {
          * method key() return key for menu.
          * @return key - int
          */
+        @Override
         public int key() {
             return 2;
         }
@@ -212,6 +220,7 @@ public class TrackerMenu {
          * @param input - Input
          * @param tracker - Tracker
          */
+        @Override
         public void execute(Input input, Tracker tracker) {
             String id = input.ask(lang.getLanguageUpdate()[1]);
             String name = input.ask(lang.getLanguageUpdate()[2]);
@@ -227,6 +236,7 @@ public class TrackerMenu {
          * method String info() return info.
          * @return info - String
          */
+        @Override
         public String info() {
             return String.format("[%s] %s ", this.key(), super.info());
         }
@@ -246,6 +256,7 @@ public class TrackerMenu {
          * method key() return key for menu.
          * @return key - int
          */
+        @Override
         public int key() {
             return 3;
         }
@@ -254,6 +265,7 @@ public class TrackerMenu {
          * @param input - Input
          * @param tracker - Tracker
          */
+        @Override
         public void execute(Input input, Tracker tracker) {
             String id = input.ask(lang.getLanguageDelete()[1]);
             Item item = new Item(null, " ", " ", 123, null);
@@ -264,6 +276,7 @@ public class TrackerMenu {
          * method String info() return info.
          * @return info - String
          */
+        @Override
         public String info() {
             return String.format("[%s] %s ", this.key(), super.info());
         }
@@ -282,6 +295,7 @@ public class TrackerMenu {
          * method key() return key for menu.
          * @return key - int
          */
+        @Override
         public int key() {
             return 6;
         }
@@ -290,6 +304,7 @@ public class TrackerMenu {
          * @param input - Input
          * @param tracker - Tracker
          */
+        @Override
         public void execute(Input input, Tracker tracker) {
             Item[] items = tracker.findAllDeleteItems();
             for (Item item : items) {
@@ -305,6 +320,7 @@ public class TrackerMenu {
          * method String info() return info.
          * @return info - String
          */
+        @Override
         public String info() {
             return String.format("[%s] %s ", this.key(), super.info());
         }
@@ -323,6 +339,7 @@ public class TrackerMenu {
          * method key() return key for menu.
          * @return key - int
          */
+        @Override
         public int key() {
             return 4;
         }
@@ -331,6 +348,7 @@ public class TrackerMenu {
          * @param input - Input
          * @param tracker - Tracker
          */
+        @Override
         public void execute(Input input, Tracker tracker) {
            Item item =  tracker.findById(input.ask(lang.getLanguageFindById()[1]));
                 System.out.println(String.format(
@@ -342,6 +360,7 @@ public class TrackerMenu {
          * method String info() return info.
          * @return info - String
          */
+        @Override
         public String info() {
             return String.format("[%s] %s ", this.key(), super.info());
         }
@@ -360,6 +379,7 @@ public class TrackerMenu {
          * method key() return key for menu.
          * @return key - int
          */
+        @Override
         public int key() {
             return 5;
         }
@@ -368,6 +388,7 @@ public class TrackerMenu {
          * @param input - Input
          * @param tracker - Tracker
          */
+        @Override
         public void execute(Input input, Tracker tracker) {
             Item[] items =  tracker.findByName(input.ask(lang.getLanguageFindByKey()[1]));
             for (Item item : items) {
@@ -381,6 +402,7 @@ public class TrackerMenu {
          * method String info() return info.
          * @return info - String
          */
+        @Override
         public String info() {
             return String.format("[%s] %s ", this.key(), super.info());
         }
@@ -399,6 +421,7 @@ public class TrackerMenu {
          * method key() return key for menu.
          * @return key - int
          */
+        @Override
         public int key() {
             return 7;
         }
@@ -407,6 +430,7 @@ public class TrackerMenu {
          * @param input - Input
          * @param tracker - Tracker
          */
+        @Override
         public void execute(Input input, Tracker tracker) {
             String id = input.ask(lang.getLanguageRestore()[1]);
             tracker.restoreById(id);
@@ -415,6 +439,7 @@ public class TrackerMenu {
          * method String info() return info.
          * @return info - String
          */
+        @Override
         public String info() {
             return String.format("[%s] %s ", this.key(), super.info());
         }
@@ -433,6 +458,7 @@ public class TrackerMenu {
          * method key() return key for menu.
          * @return key - int
          */
+        @Override
         public int key() {
             return 8;
         }
@@ -441,6 +467,7 @@ public class TrackerMenu {
          * @param input - Input
          * @param tracker - Tracker
          */
+        @Override
         public void execute(Input input, Tracker tracker) {
             String id = input.ask(lang.getLanguageAddComment()[1]);
             String comments = input.ask(lang.getLanguageAddComment()[2]);
@@ -450,6 +477,7 @@ public class TrackerMenu {
          * method String info() return info.
          * @return info - String
          */
+        @Override
         public String info() {
             return String.format("[%s] %s ", this.key(), super.info());
         }

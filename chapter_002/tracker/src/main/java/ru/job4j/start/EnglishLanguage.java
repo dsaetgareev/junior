@@ -51,6 +51,7 @@ public class EnglishLanguage implements Language {
     /**
      * fillAll - fill all methods.
      */
+    @Override
     public void fillAll() {
         this.fillLanguageTracker();
         this.fillLanguageAdd();
@@ -66,6 +67,7 @@ public class EnglishLanguage implements Language {
     /**
      * method fill a tracker questions.
      */
+    @Override
     public void fillLanguageTracker() {
         this.languageTracker[0] = "Select:_";
         this.languageTracker[1] = "Continue? any symbol. Exit? '";
@@ -82,12 +84,14 @@ public class EnglishLanguage implements Language {
      * String[] getLanguageTracker().
      * @return LanguageTracker
      */
+    @Override
     public String[] getLanguageTracker() {
         return this.languageTracker;
     }
     /**
      * fill questions for AddAction.
      */
+    @Override
     public void fillLanguageAdd() {
         this.languageAdd[0] = "Add the new task.";
         this.languageAdd[1] = "Please, enter the task's name: ";
@@ -99,12 +103,14 @@ public class EnglishLanguage implements Language {
      * getLanguageAdd().
      * @return LanguageAdd
      */
+    @Override
     public String[] getLanguageAdd() {
         return this.languageAdd;
     }
     /**
      * method fill questions for ShowAction.
      */
+    @Override
     public void fillLanguageShow() {
         this.languageShow[0] = "Show items.";
     }
@@ -112,12 +118,14 @@ public class EnglishLanguage implements Language {
      * getLanguageShow().
      * @return LanguageShow
      */
+    @Override
     public String[] getLanguageShow() {
         return this.languageShow;
     }
     /**
      * method fill questions for UpdateAction.
      */
+    @Override
     public void fillLanguageUpdate() {
         this.languageUpdate[0] = "Edit item.";
         this.languageUpdate[1] = "Please, enter ID edited item: ";
@@ -130,12 +138,14 @@ public class EnglishLanguage implements Language {
      * getLanguageUpdate().
      * @return LanguageUpdate
      */
+    @Override
     public String[] getLanguageUpdate() {
         return this.languageUpdate;
     }
     /**
      * fill questions for DeleteAction.
      */
+    @Override
     public void fillLanguageDelete() {
         this.languageDelete[0] = "Delete item.";
         this.languageDelete[1] = "Please, enter ID deleted item's: ";
@@ -144,12 +154,14 @@ public class EnglishLanguage implements Language {
      * getLanguageDelete().
      * @return LanguageDelete
      */
+    @Override
     public String[] getLanguageDelete() {
         return this.languageDelete;
     }
     /**
      * fill questions for ShowDeleteAction.
      */
+    @Override
     public void fillLanguageShowDelete() {
         this.languageShowDelete[0] = "Show deleted items.";
     }
@@ -157,12 +169,14 @@ public class EnglishLanguage implements Language {
      * getLanguageShowDelete().
      * @return LanguageShowDelete
      */
+    @Override
     public String[] getLanguageShowDelete() {
         return this.languageShowDelete;
     }
     /**
      * fill questions for FindByIdAction.
      */
+    @Override
     public void fillLanguageFindById() {
         this.languageFindById[0] = "Find item by id.";
         this.languageFindById[1] = "Please, enter ID item's find by id: ";
@@ -171,12 +185,14 @@ public class EnglishLanguage implements Language {
      * getLanguageFindById().
      * @return LanguageFindById
      */
+    @Override
     public String[] getLanguageFindById() {
         return this.languageFindById;
     }
     /**
      * fill questions for FindByKeyAction.
      */
+    @Override
     public void fillLanguageFindByKey() {
         this.languageFindByKey[0] = "Find item by key.";
         this.languageFindByKey[1] = "Please, enter ID item's find by key: ";
@@ -185,12 +201,14 @@ public class EnglishLanguage implements Language {
      * getLanguageFindByKey().
      * @return LanguageFindByKey
      */
+    @Override
     public String[] getLanguageFindByKey() {
         return this.languageFindByKey;
     }
     /**
      * fill questions RestoreAction.
      */
+    @Override
     public void fillLanguageRestore() {
         this.languageRestore[0] = "Restore item.";
         this.languageRestore[1] = "Please, enter ID restore item's: ";
@@ -199,12 +217,14 @@ public class EnglishLanguage implements Language {
      * getLanguageRestore().
      * @return LanguageRestore
      */
+    @Override
     public String[] getLanguageRestore() {
         return this.languageRestore;
     }
     /**
      * fill questions AddCommentAction.
      */
+    @Override
     public void fillLanguageAddComment() {
         this.languageAddComment[0] = "Add new comment.";
         this.languageAddComment[1] = "Please, enter ID item's: ";
@@ -214,6 +234,7 @@ public class EnglishLanguage implements Language {
      * getLanguageAddComment().
      * @return LanguageAddComment
      */
+    @Override
     public String[] getLanguageAddComment() {
         return this.languageAddComment;
     }

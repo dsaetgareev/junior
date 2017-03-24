@@ -50,6 +50,7 @@ public class RussLanguage implements Language {
     /**
      * fillAll - fill all methods.
      */
+    @Override
     public void fillAll() {
         this.fillLanguageTracker();
         this.fillLanguageAdd();
@@ -65,6 +66,7 @@ public class RussLanguage implements Language {
     /**
      * method fill a tracker questions.
      */
+    @Override
     public void fillLanguageTracker() {
         this.languageTracker[0] = "Выбор:_";
         this.languageTracker[1] = "Продолжить? любой символ. Exit? '";
@@ -81,12 +83,14 @@ public class RussLanguage implements Language {
      * String[] getLanguageTracker().
      * @return LanguageTracker
      */
+    @Override
     public String[] getLanguageTracker() {
         return this.languageTracker;
     }
     /**
      * fill questions for AddAction.
      */
+    @Override
     public void fillLanguageAdd() {
         this.languageAdd[0] = "Добавить новую задачу.";
         this.languageAdd[1] = "Пожалуйста, введите имя задачи: ";
@@ -98,12 +102,14 @@ public class RussLanguage implements Language {
      * getLanguageAdd().
      * @return LanguageAdd
      */
+    @Override
     public String[] getLanguageAdd() {
         return this.languageAdd;
     }
     /**
      * method fill questions for ShowAction.
      */
+    @Override
     public void fillLanguageShow() {
         this.languageShow[0] = "Показать элементы.";
     }
@@ -111,12 +117,14 @@ public class RussLanguage implements Language {
      * getLanguageShow().
      * @return LanguageShow
      */
+    @Override
     public String[] getLanguageShow() {
         return this.languageShow;
     }
     /**
      * method fill questions for UpdateAction.
      */
+    @Override
     public void fillLanguageUpdate() {
         this.languageUpdate[0] = "Изменить элемент.";
         this.languageUpdate[1] = "Пожалуйста, введите id заменяемого элемента: ";
@@ -129,12 +137,14 @@ public class RussLanguage implements Language {
      * getLanguageUpdate().
      * @return LanguageUpdate
      */
+    @Override
     public String[] getLanguageUpdate() {
         return this.languageUpdate;
     }
     /**
      * fill questions for DeleteAction.
      */
+    @Override
     public void fillLanguageDelete() {
         this.languageDelete[0] = "Удалить элемент.";
         this.languageDelete[1] = "Пожалуйста, введите id удаляемого элемента: ";
@@ -143,12 +153,14 @@ public class RussLanguage implements Language {
      * getLanguageDelete().
      * @return LanguageDelete
      */
+    @Override
     public String[] getLanguageDelete() {
         return this.languageDelete;
     }
     /**
      * fill questions for ShowDeleteAction.
      */
+    @Override
     public void fillLanguageShowDelete() {
         this.languageShowDelete[0] = "Показать удаленные элементы.";
     }
@@ -156,12 +168,14 @@ public class RussLanguage implements Language {
      * getLanguageShowDelete().
      * @return LanguageShowDelete
      */
+    @Override
     public String[] getLanguageShowDelete() {
         return this.languageShowDelete;
     }
     /**
      * fill questions for FindByIdAction.
      */
+    @Override
     public void fillLanguageFindById() {
         this.languageFindById[0] = "Найти элемент по id.";
         this.languageFindById[1] = "Пожалуйста, введите id элемента: ";
@@ -170,12 +184,14 @@ public class RussLanguage implements Language {
      * getLanguageFindById().
      * @return LanguageFindById
      */
+    @Override
     public String[] getLanguageFindById() {
         return this.languageFindById;
     }
     /**
      * fill questions for FindByKeyAction.
      */
+    @Override
     public void fillLanguageFindByKey() {
         this.languageFindByKey[0] = "Найти элемент по ключу.";
         this.languageFindByKey[1] = "Пожалуйста, введите ключ: ";
@@ -184,12 +200,14 @@ public class RussLanguage implements Language {
      * getLanguageFindByKey().
      * @return LanguageFindByKey
      */
+    @Override
     public String[] getLanguageFindByKey() {
         return this.languageFindByKey;
     }
     /**
      * fill questions RestoreAction.
      */
+    @Override
     public void fillLanguageRestore() {
         this.languageRestore[0] = "Восстановить удаленный элемент.";
         this.languageRestore[1] = "Пожалуйста, введите id востанавливаемого элемента: ";
@@ -198,12 +216,14 @@ public class RussLanguage implements Language {
      * getLanguageRestore().
      * @return LanguageRestore
      */
+    @Override
     public String[] getLanguageRestore() {
         return this.languageRestore;
     }
     /**
      * fill questions AddCommentAction.
      */
+    @Override
     public void fillLanguageAddComment() {
         this.languageAddComment[0] = "Добавить новый коментарий элементу по id.";
         this.languageAddComment[1] = "Пожалуйста, введите id элемента: ";
@@ -213,6 +233,7 @@ public class RussLanguage implements Language {
      * getLanguageAddComment().
      * @return LanguageAddComment
      */
+    @Override
     public String[] getLanguageAddComment() {
         return this.languageAddComment;
     }
