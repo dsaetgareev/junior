@@ -2,9 +2,10 @@ package ru.job4j.start;
 
 /**
  * class StartUI contains main method.
+ *
  * @author Dinis Saetgareev (dinis0086@mail.ru)
- * @since 15.03.2017
  * @version 1.0
+ * @since 15.03.2017
  */
 public class StartUI {
     /**
@@ -15,49 +16,46 @@ public class StartUI {
      * Tracker tracker.
      */
     private Tracker tracker;
+    /**
+     * Language lang.
+     */
+    private Language lang;
 
     /**
      * Constructor StartUI(Input input).
-     * @param input - Input
+     *
+     * @param input   - Input
      * @param tracker - Tracker
      */
     public StartUI(Input input, Tracker tracker) {
         this.input = input;
         this.tracker = tracker;
     }
+
     /**
      * method init() displays a menu.
      */
     public void init() {
-        TrackerMenu menu;
-        String selectMenu = input.ask("English menu - enter 1.\nРусское меню - введите 2\n:___");
-        if (selectMenu.equals("1")) {
-            menu = new TrackerMenuEnglish(input, tracker);
-            menu.descriptionTracker();
-            menu.fillAction();
-            do {
-                menu.show();
-                int key = Integer.valueOf(input.ask("Select:__ "));
-                menu.select(key);
-            } while (!"exit".equals(input.ask("Continue? any symbol. Exit? 'exit':__ ")));
-        }
-        if (selectMenu.equals("2")) {
-            menu = new TrackerMenuRuss(input, tracker);
-            menu.descriptionTracker();
-            menu.fillAction();
-            do {
-                menu.show();
-                int key = Integer.valueOf(input.ask("Выбор:__ "));
-                menu.select(key);
-            } while (!"выход".equals(input.ask("Продолжить? любая клавиша. Выйти? 'выход':__ ")));
-        }
+
+        MenuLanguage lan = new MenuLanguage(this.input, this.tracker);
+        lang = lan.selectLan(this.input.ask(lan.question(), lan.initRangeLan()));
+        TrackerMenu menu = new TrackerMenu(this.input, this.tracker, this.lang);
+        lang.fillAll();
+        menu.descriptionTracker();
+        menu.fillAction();
+        do {
+            menu.show();
+            menu.select(this.input.ask(menu.questionSelect(), menu.initRange()));
+        } while (!menu.questionKey().equals(input.ask(menu.questionBoolean())));
     }
+
     /**
      * method main.
+     *
      * @param args - String[]
      */
     public static void main(String[] args) {
-        ConsoleInput input = new ConsoleInput();
+        ConsoleInput input = new ValidateInput();
         Tracker tracker = new Tracker();
         new StartUI(input, tracker).init();
     }
