@@ -13,6 +13,7 @@ public class ValidateInput extends ConsoleInput {
      * @param range - int[]
      * @return value - int
      */
+    @Override
     public int ask(String question, int[] range) {
         boolean invalid = true;
         int value = 0;
