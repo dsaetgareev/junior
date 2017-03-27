@@ -24,6 +24,9 @@ public class BankTestJunit {
         bank.flowPeople();
         assertThat(bank.flowPeople()[0].getCount(), is(1));
     }
+    /**
+     * void whenMaxFlowThenWorkingTime().
+     */
     @Test
     public void whenMaxFlowThenWorkingTime() {
         WorkingTime[] workingTimes = new WorkingTime[]{new WorkingTime(0, 8),
