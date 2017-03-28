@@ -64,8 +64,8 @@ public class Bank {
      * @return workingTimes - WorkingTime[]
      */
     public WorkingTime[] flowPeople() {
-        fillWorkingTimes();
-        fillMans();
+        //fillWorkingTimes();
+        //fillMans();
         for (int i = 0; i < this.workingTimes.length; i++) {
             int count = 0;
             for (int j = 0; j < this.mans.length; j++) {
@@ -87,7 +87,7 @@ public class Bank {
      * @return array - time when max flow
      */
     public WorkingTime[] maxFlow() {
-        flowPeople();
+        //flowPeople();
         WorkingTime[] result = new WorkingTime[this.workingTimes.length];
         int position = 0;
         int max = 0;

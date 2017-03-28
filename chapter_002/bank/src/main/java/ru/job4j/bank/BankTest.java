@@ -15,6 +15,10 @@ public class BankTest {
         WorkingTime[] workingTimes = new WorkingTime[12];
         Man[] mans = new Man[5];
         Bank bank = new Bank(workingTimes, mans);
+        bank.fillWorkingTimes();
+        bank.fillMans();
+        bank.flowPeople();
+        bank.maxFlow();
         bank.show();
     }
 }
