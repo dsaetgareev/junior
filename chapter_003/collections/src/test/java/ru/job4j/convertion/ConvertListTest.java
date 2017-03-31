@@ -56,4 +56,17 @@ public class ConvertListTest {
         List<Integer> listInteger = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
         assertThat(convertList.convert(listArray), is(listInteger));
     }
+    /**
+     * void whenListArrayConvertIteratorThenListInteger() tests method convert() of class ConvertList.
+     */
+    @Test
+    public void whenListArrayConvertIteratorThenListInteger() {
+        ConvertList convertList = new ConvertList();
+        List<int[]> listArrayIter = new ArrayList<>();
+        listArrayIter.add(new int[] {11, 2, 3});
+        listArrayIter.add(new int[] {4, 5, 6, 7});
+        listArrayIter.add(new int[] {8, 9});
+        List<Integer> listInteger = Arrays.asList(11, 2, 3, 4, 5, 6, 7, 8, 9);
+        assertThat(convertList.convert(listArrayIter), is(listInteger));
+    }
 }
