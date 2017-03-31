@@ -50,4 +50,21 @@ public class ConvertList {
 
         return array;
     }
+
+    /**
+     * method convert(List<int[]> list) converts List<int[]> list to List<Integer> listInteger.
+     * @param list - List<int[]> list
+     * @return result - List<Integer>
+     */
+    public List<Integer> convert(List<int[]> list) {
+        List<Integer> result = new ArrayList<>();
+        Iterator<int[]> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            int[] temp = iterator.next();
+            for (int i = 0; i < temp.length; i++) {
+                result.add(temp[i]);
+            }
+        }
+        return result;
+    }
 }

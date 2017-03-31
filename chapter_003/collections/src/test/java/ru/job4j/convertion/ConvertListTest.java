@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -40,5 +41,19 @@ public class ConvertListTest {
                 {1, 2, 3}, {4, 5, 6}, {7, 8, 9}
         };
         assertThat(convertList.toArray(arrayList, 3), is(array));
+    }
+
+    /**
+     * void whenListArrayThenListInteger() tests method convert() of class ConvertList.
+     */
+    @Test
+    public void whenListArrayThenListInteger() {
+        ConvertList convertList = new ConvertList();
+        List<int[]> listArray = new ArrayList<>();
+        listArray.add(new int[] {1, 2, 3});
+        listArray.add(new int[] {4, 5, 6, 7});
+        listArray.add(new int[] {8, 9});
+        List<Integer> listInteger = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
+        assertThat(convertList.convert(listArray), is(listInteger));
     }
 }
