@@ -8,6 +8,7 @@ import java.util.TreeSet;
 
 /**
  * this program tests the time adding and removing collections.
+ *
  * @author Dinis Saetgareev (dinis0086@mail.ru)
  * @version 1.0
  * @since 29.03.2017
@@ -17,6 +18,7 @@ public class CollectionsTest {
 
     /**
      * method main tests collections.
+     *
      * @param args - String[]
      */
     public static void main(String[] args) {
