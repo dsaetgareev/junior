@@ -21,14 +21,7 @@ public class Tracker {
      * array List<Item> deleteItems.
      */
     private List<Item> deleteItems = new ArrayList<>();
-    /**
-     * int position.
-     */
-    private int position = 0;
-    /**
-     * int deletePosition - counter for List<Item> deleteItems.
-     */
-    private int deletePosition = 0;
+
     /**
      * rn - random value.
      */
@@ -42,7 +35,6 @@ public class Tracker {
     public Item add(Item item) {
         item.setId(String.valueOf(rn.nextInt(1000)));
         this.items.add(item);
-        position++;
         return item;
     }
 
@@ -67,7 +59,7 @@ public class Tracker {
      * @param item - Item
      */
     public void update(Item item) {
-        for (int i = 0; i != position; i++) {
+        for (int i = 0; i != this.items.size(); i++) {
             if (this.items.get(i) != null && item.getId().equals(this.items.get(i).getId())) {
                 this.items.set(i, item);
                 break;
@@ -81,14 +73,12 @@ public class Tracker {
      */
     public void delete(Item item) {
         Iterator<Item> iterator = this.items.iterator();
-        for (int i = 0; i != position && iterator.hasNext(); i++) {
-            iterator.next();
-            if (this.items.get(i) != null && item.getId().equals(this.items.get(i).getId())) {
-                Item tempItem = this.items.get(i);
+        for (int i = 0; i != this.items.size() && iterator.hasNext(); i++) {
+            Item iter = iterator.next();
+            if (iter != null && item.getId().equals(iter.getId())) {
+                Item tempItem = iter;
                 iterator.remove();
                 this.deleteItems.add(tempItem);
-                position--;
-                deletePosition++;
                 break;
             }
         }
@@ -100,12 +90,11 @@ public class Tracker {
      */
     public List<Item> findAll() {
         ArrayList<Item> result = new ArrayList<>();
-        for (int i = 0; i != position; i++) {
+        for (int i = 0; i != this.items.size(); i++) {
             if (this.items.get(i) != null) {
                 result.add(this.items.get(i));
             }
         }
-        result.trimToSize();
         return result;
     }
 
@@ -115,12 +104,11 @@ public class Tracker {
      */
     public List<Item> findAllDeleteItems() {
         ArrayList<Item> result = new ArrayList<>();
-        for (int i = 0; i != deletePosition; i++) {
+        for (int i = 0; i != this.deleteItems.size(); i++) {
             if (this.deleteItems.get(i) != null) {
                 result.add(this.deleteItems.get(i));
             }
         }
-        result.trimToSize();
         return result;
     }
     /**
@@ -128,15 +116,13 @@ public class Tracker {
      * @param id - String
      */
     public void restoreById(String id) {
-        Iterator<Item> iterator = deleteItems.iterator();
-        for (int i = 0; i != deletePosition && iterator.hasNext(); i++) {
-            iterator.next();
-            if (this.deleteItems.get(i) != null && id.equals(this.deleteItems.get(i).getId())) {
-                Item tempItem = this.deleteItems.get(i);
+        Iterator<Item> iterator = this.deleteItems.iterator();
+        for (int i = 0; i != this.deleteItems.size() && iterator.hasNext(); i++) {
+            Item iter = iterator.next();
+            if (iter != null && id.equals(iter.getId())) {
+                Item tempItem = iter;
                 iterator.remove();
                 this.items.add(tempItem);
-                position++;
-                deletePosition--;
                 break;
             }
         }
@@ -164,13 +150,12 @@ public class Tracker {
      */
     public List<Item> findByName(String key) {
         ArrayList<Item> result = new ArrayList<>();
-        for (int i = 0; i != position; i++) {
+        for (int i = 0; i != this.items.size(); i++) {
             if (this.items.get(i) != null && (this.items.get(i).getName().contains(key) || this.items.get(i).getDesc().contains(key)
                     || this.items.get(i).getComments().contains(key))) {
                 result.add(this.items.get(i));
             }
         }
-        result.trimToSize();
         return result;
     }
 
@@ -180,7 +165,7 @@ public class Tracker {
      * @param id - String
      */
     public void comment(String comments, String id) {
-        for (int i = 0; i != position; i++) {
+        for (int i = 0; i != this.items.size(); i++) {
             if (this.items.get(i) != null && id.equals(this.items.get(i).getId())) {
                 this.items.get(i).setComments(comments);
             }
