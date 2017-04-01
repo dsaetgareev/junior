@@ -1,6 +1,11 @@
 package ru.job4j.start;
 
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 /**
@@ -17,8 +22,8 @@ public class TrackerTest {
     public void whenAddItemThenArrayItem() {
         Tracker tracker = new Tracker();
         Item item = new Item(null, "item1", "item1", 11032017, "item1");
-        Item[] afterItem = new Item[10];
-        afterItem[0] = item;
+        List<Item> afterItem = new ArrayList<>();
+        afterItem.add(item);
         tracker.add(item);
         assertThat(tracker.getItems(), is(afterItem));
     }
@@ -34,10 +39,10 @@ public class TrackerTest {
         Item item2 = new Item(null, "item2", "item2...", 11032017, "item2");
         tracker.add(item);
         tracker.add(item1);
-        Item[] afterItems = new Item[10];
-        afterItems[0] = item2;
-        afterItems[1] = item1;
-        item2.setId(tracker.getItems()[0].getId());
+        List<Item> afterItems = new ArrayList<>();
+        afterItems.add(item2);
+        afterItems.add(item1);
+        item2.setId(tracker.getItems().get(0).getId());
         tracker.update(item2);
         assertThat(tracker.getItems(), is(afterItems));
     }
@@ -51,9 +56,8 @@ public class TrackerTest {
         Item item1 = new Item(null, "Item1", "item1...", 11032017, "item1");
         tracker.add(item);
         tracker.add(item1);
-        Item[] afterItems = new Item[10];
-        afterItems[0] = null;
-        afterItems[1] = item1;
+        List<Item> afterItems = new ArrayList<>();
+        afterItems.add(item1);
         tracker.delete(item);
         assertThat(tracker.getItems(), is(afterItems));
     }
@@ -67,9 +71,9 @@ public class TrackerTest {
         Item item1 = new Item(null, "Item1", "item1...", 11032017, "item1");
         tracker.add(item);
         tracker.add(item1);
-        Item[] afterItems = new Item[2];
-        afterItems[0] = item;
-        afterItems[1] = item1;
+        List<Item> afterItems = new ArrayList<>();
+        afterItems.add(item);
+        afterItems.add(item1);
         assertThat(tracker.findAll(), is(afterItems));
     }
 
@@ -83,7 +87,7 @@ public class TrackerTest {
         Item item1 = new Item(null, "Item1", "item1...", 11032017, "item1");
         tracker.add(item);
         tracker.add(item1);
-        assertThat(tracker.findById(tracker.getItems()[1].getId()), is(item1));
+        assertThat(tracker.findById(tracker.getItems().get(1).getId()), is(item1));
     }
     /**
      * whenFindByNameThenArrayItem().
@@ -95,7 +99,7 @@ public class TrackerTest {
         Item item1 = new Item(null, "Item1", "item1...", 11032017, "item1");
         tracker.add(item);
         tracker.add(item1);
-        Item[] afterItem = {item1};
-        assertThat(tracker.findByName(tracker.getItems()[1].getName()), is(afterItem));
+        List<Item> afterItem = Arrays.asList(item1);
+        assertThat(tracker.findByName(tracker.getItems().get(1).getName()), is(afterItem));
     }
 }

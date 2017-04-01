@@ -1,6 +1,9 @@
 package ru.job4j.start;
 
-import java.util.Arrays;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -11,19 +14,19 @@ import java.util.Random;
  */
 public class Tracker {
     /**
-     * array Item[] items.
+     * array List<Item> items.
      */
-    private Item[] items = new Item[10];
+    private List<Item> items = new ArrayList<>();
     /**
-     * array Item[] deleteItems.
+     * array List<Item> deleteItems.
      */
-    private Item[] deleteItems = new Item[10];
+    private List<Item> deleteItems = new ArrayList<>();
     /**
      * int position.
      */
     private int position = 0;
     /**
-     * int deletePosition - counter for Item[] deleteItem.
+     * int deletePosition - counter for List<Item> deleteItems.
      */
     private int deletePosition = 0;
     /**
@@ -38,7 +41,8 @@ public class Tracker {
      */
     public Item add(Item item) {
         item.setId(String.valueOf(rn.nextInt(1000)));
-        this.items[position++] = item;
+        this.items.add(item);
+        position++;
         return item;
     }
 
@@ -46,15 +50,15 @@ public class Tracker {
      * method getItems().
      * @return items - Item[]
      */
-    public Item[] getItems() {
+    public List<Item> getItems() {
         return this.items;
     }
 
     /**
      * method getDeleteItems().
-     * @return items - Item[]
+     * @return items - List<Item>
      */
-    public Item[] getDeleteItems() {
+    public List<Item> getDeleteItems() {
         return this.deleteItems;
     }
 
@@ -64,8 +68,8 @@ public class Tracker {
      */
     public void update(Item item) {
         for (int i = 0; i != position; i++) {
-            if (this.items[i] != null && item.getId().equals(this.items[i].getId())) {
-                this.items[i] = item;
+            if (this.items.get(i) != null && item.getId().equals(this.items.get(i).getId())) {
+                this.items.set(i, item);
                 break;
             }
         }
@@ -76,45 +80,47 @@ public class Tracker {
      * @param item - Item
      */
     public void delete(Item item) {
-        for (int i = 0; i != position; i++) {
-            if (this.items[i] != null && item.getId().equals(this.items[i].getId())) {
-                Item tempItem = this.items[i];
-                this.items[i] = null;
-                this.deleteItems[deletePosition++] = tempItem;
+        Iterator<Item> iterator = this.items.iterator();
+        for (int i = 0; i != position && iterator.hasNext(); i++) {
+            iterator.next();
+            if (this.items.get(i) != null && item.getId().equals(this.items.get(i).getId())) {
+                Item tempItem = this.items.get(i);
+                iterator.remove();
+                this.deleteItems.add(tempItem);
+                position--;
+                deletePosition++;
                 break;
             }
         }
     }
 
     /**
-     * method Item[] findAll() return Item[].
+     * method List<Item> findAll() return Item[].
      * @return this.items
      */
-    public Item[] findAll() {
-        Item[] result = new Item[position];
-        int count = 0;
+    public List<Item> findAll() {
+        ArrayList<Item> result = new ArrayList<>();
         for (int i = 0; i != position; i++) {
-            if (this.items[i] != null) {
-                result[count] = this.items[i];
-                count++;
+            if (this.items.get(i) != null) {
+                result.add(this.items.get(i));
             }
         }
+        result.trimToSize();
         return result;
     }
 
     /**
-     * method Item[] findAllDeleteItems() return Item[].
+     * method List<Item> findAllDeleteItems() return Item[].
      * @return this.deleteItems - Item[]
      */
-    public Item[] findAllDeleteItems() {
-        Item[] result = new Item[deletePosition];
-        int count = 0;
+    public List<Item> findAllDeleteItems() {
+        ArrayList<Item> result = new ArrayList<>();
         for (int i = 0; i != deletePosition; i++) {
-            if (this.deleteItems[i] != null) {
-                result[count] = this.deleteItems[i];
-                count++;
+            if (this.deleteItems.get(i) != null) {
+                result.add(this.deleteItems.get(i));
             }
         }
+        result.trimToSize();
         return result;
     }
     /**
@@ -122,11 +128,15 @@ public class Tracker {
      * @param id - String
      */
     public void restoreById(String id) {
-        for (int i = 0; i != deletePosition; i++) {
-            if (this.deleteItems[i] != null && id.equals(this.deleteItems[i].getId())) {
-                Item tempItem = this.deleteItems[i];
-                this.deleteItems[i] = null;
-                this.items[position++] = tempItem;
+        Iterator<Item> iterator = deleteItems.iterator();
+        for (int i = 0; i != deletePosition && iterator.hasNext(); i++) {
+            iterator.next();
+            if (this.deleteItems.get(i) != null && id.equals(this.deleteItems.get(i).getId())) {
+                Item tempItem = this.deleteItems.get(i);
+                iterator.remove();
+                this.items.add(tempItem);
+                position++;
+                deletePosition--;
                 break;
             }
         }
@@ -148,21 +158,20 @@ public class Tracker {
     }
 
     /**
-     * method findByName(String key) return Item[] that contains key.
+     * method findByName(String key) return List<Item> that contains key.
      * @param key - String
      * @return array.
      */
-    public Item[] findByName(String key) {
-        Item[] result = new Item[position];
-        int count = 0;
+    public List<Item> findByName(String key) {
+        ArrayList<Item> result = new ArrayList<>();
         for (int i = 0; i != position; i++) {
-            if (this.items[i] != null && (this.items[i].getName().contains(key) || this.items[i].getDesc().contains(key)
-                    || this.items[i].getComments().contains(key))) {
-                result[count] = this.items[i];
-                count++;
+            if (this.items.get(i) != null && (this.items.get(i).getName().contains(key) || this.items.get(i).getDesc().contains(key)
+                    || this.items.get(i).getComments().contains(key))) {
+                result.add(this.items.get(i));
             }
         }
-        return Arrays.copyOf(result, count);
+        result.trimToSize();
+        return result;
     }
 
     /**
@@ -172,8 +181,8 @@ public class Tracker {
      */
     public void comment(String comments, String id) {
         for (int i = 0; i != position; i++) {
-            if (items[i] != null && id.equals(items[i].getId())) {
-                items[i].setComments(comments);
+            if (this.items.get(i) != null && id.equals(this.items.get(i).getId())) {
+                this.items.get(i).setComments(comments);
             }
         }
     }

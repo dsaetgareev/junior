@@ -19,9 +19,9 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Input input = new StubInput(new String[] {"0", "0", "test1", "test2", "123", "test1", " ", "1", "exit"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findAll().length, is(1));
-        Item item = new Item(tracker.findAll()[0].getId(), "test1", "test2", 123, "test1");
-        assertThat(tracker.findAll()[0], is(item));
+        assertThat(tracker.findAll().size(), is(1));
+        Item item = new Item(tracker.findAll().get(0).getId(), "test1", "test2", 123, "test1");
+        assertThat(tracker.findAll().get(0), is(item));
     }
 
     /**
@@ -31,12 +31,12 @@ public class StartUITest {
     public void whenEditItemThenResult() {
         Tracker tracker = new Tracker();
         tracker.add(new Item(null, "item", "item", 11032017, "item"));
-        Input input = new StubInput(new String[] {"0", "2", tracker.findAll()[0].getId(),
+        Input input = new StubInput(new String[] {"0", "2", tracker.findAll().get(0).getId(),
                 "test3", "test3", "170317", "test3", "exit"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findAll().length, is(1));
-        Item item = new Item(tracker.findAll()[0].getId(), "test3", "test3", 170317, "test3");
-        assertThat(tracker.findAll()[0], is(item));
+        assertThat(tracker.findAll().size(), is(1));
+        Item item = new Item(tracker.findAll().get(0).getId(), "test3", "test3", 170317, "test3");
+        assertThat(tracker.findAll().get(0), is(item));
     }
 
     /**
@@ -47,11 +47,11 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         tracker.add(new Item(null, "item", "item", 11032017, "item"));
         tracker.add(new Item(null, "test3", "test3", 170317, "test3"));
-        Input input = new StubInput(new String[] {"0", "3", tracker.findAll()[0].getId(), "exit"});
+        Input input = new StubInput(new String[] {"0", "3", tracker.findAll().get(0).getId(), "exit"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findAll().length, is(2));
-        Item item = new Item(tracker.findAll()[0].getId(), "test3", "test3", 170317, "test3");
-        assertThat(tracker.findAll()[0], is(item));
+        assertThat(tracker.findAll().size(), is(1));
+        Item item = new Item(tracker.findAll().get(0).getId(), "test3", "test3", 170317, "test3");
+        assertThat(tracker.findAll().get(0), is(item));
     }
 
     /**
@@ -62,12 +62,12 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         tracker.add(new Item(null, "item", "item", 11032017, "item"));
         tracker.add(new Item(null, "test3", "test3", 170317, "test3"));
-        Input input = new StubInput(new String[] {"0", "3", tracker.findAll()[0].getId(), " ", "1", " ", "6", "exit"});
+        Input input = new StubInput(new String[] {"0", "3", tracker.findAll().get(0).getId(), " ", "1", " ", "6", "exit"});
         new StartUI(input, tracker).init();
-        Input input1 = new StubInput(new String[] {"0", "7", tracker.findAllDeleteItems()[0].getId(), " ", "1", "exit"});
+        Input input1 = new StubInput(new String[] {"0", "7", tracker.findAllDeleteItems().get(0).getId(), " ", "1", "exit"});
         new StartUI(input1, tracker).init();
-        Item item = new Item(tracker.findAll()[1].getId(), "item", "item", 11032017, "item");
-        assertThat(tracker.findAll()[1], is(item));
+        Item item = new Item(tracker.findAll().get(1).getId(), "item", "item", 11032017, "item");
+        assertThat(tracker.findAll().get(1), is(item));
 
     }
 
@@ -78,8 +78,8 @@ public class StartUITest {
     public void whenAddNewCommentThenResult() {
         Tracker tracker = new Tracker();
         tracker.add(new Item(null, "item", "item", 11032017, "item"));
-        Input input3 = new StubInput(new String[] {"0", "8", tracker.findAll()[0].getId(), "new comment", " ", "1", "exit"});
+        Input input3 = new StubInput(new String[] {"0", "8", tracker.findAll().get(0).getId(), "new comment", " ", "1", "exit"});
         new StartUI(input3, tracker).init();
-        assertThat(tracker.findAll()[0].getComments(), is("new comment"));
+        assertThat(tracker.findAll().get(0).getComments(), is("new comment"));
     }
 }

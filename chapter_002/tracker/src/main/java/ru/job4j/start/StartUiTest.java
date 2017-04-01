@@ -16,13 +16,13 @@ public class StartUiTest {
         Input input = new StubInput(new String[] {"0", "0", " test1", "checking test1", "15032017", "method add",
                 " ", "0", "test2", "checking test2", "170317", "method add", " ", "1", "exit"});
         new StartUI(input, tracker).init();
-        Input input1 = new StubInput(new String[] {"0", "2", tracker.findAll()[0].getId(),
-                "test3", "test3", "170317", "test3", " ", "1", " ", "3", tracker.findAll()[0].getId(), " ", "6", "exit"});
+        Input input1 = new StubInput(new String[] {"0", "2", tracker.findAll().get(0).getId(),
+                "test3", "test3", "170317", "test3", " ", "1", " ", "3", tracker.findAll().get(0).getId(), " ", "6", "exit"});
         new StartUI(input1, tracker).init();
-        Input input2 = new StubInput(new String[] {"0", "7", tracker.findAllDeleteItems()[0].getId(), " ", "1", "exit"});
+        Input input2 = new StubInput(new String[] {"0", "7", tracker.findAllDeleteItems().get(0).getId(), " ", "1", "exit"});
         new StartUI(input2, tracker).init();
-        Input input3 = new StubInput(new String[] {"0", "4", tracker.findAll()[1].getId(), " ", "5", "test3", " ",
-                "8", tracker.findAll()[1].getId(), "new ", " ", "1", "exit"});
+        Input input3 = new StubInput(new String[] {"0", "4", tracker.findAll().get(1).getId(), " ", "5", "test3", " ",
+                "8", tracker.findAll().get(1).getId(), "new ", " ", "1", "exit"});
         new StartUI(input3, tracker).init();
     }
 }

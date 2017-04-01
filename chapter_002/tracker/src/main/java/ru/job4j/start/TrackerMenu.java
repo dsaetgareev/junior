@@ -2,6 +2,9 @@ package ru.job4j.start;
 
 //import jdk.nashorn.internal.objects.annotations.Constructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * class TrackerMenu.
  * @author Dinis Saetgareev (dinis0086@mail.ru)
@@ -22,9 +25,9 @@ public class TrackerMenu {
      */
     private Language lang;
     /**
-     * array UserAction[] contains UserAction objects.
+     * array List<UserAction> contains UserAction objects.
      */
-    private UserAction[] actions = new UserAction[9];
+    private List<UserAction> actions = new ArrayList<>();
     /**
      * Constructor TrackerMenu(Input input, Tracker tracker, Language lang).
      * @param input - Input
@@ -68,23 +71,23 @@ public class TrackerMenu {
      * method void fillAction() - fills in an array UserAction object.
      */
     public void fillAction() {
-        this.actions[0] = new AddItem();
-        this.actions[1] = new ShowItem();
-        this.actions[2] = new UpdateAction();
-        this.actions[3] = new DeleteAction();
-        this.actions[4] = new FindByIdAction();
-        this.actions[5] = new FindByKeyAction();
-        this.actions[6] = new ShowDeleteItemAction();
-        this.actions[7] = new RestoreAction();
-        this.actions[8] = new AddCommentAction();
+        this.actions.add(new AddItem());
+        this.actions.add(new ShowItem());
+        this.actions.add(new UpdateAction());
+        this.actions.add(new DeleteAction());
+        this.actions.add(new FindByIdAction());
+        this.actions.add(new FindByKeyAction());
+        this.actions.add(new ShowDeleteItemAction());
+        this.actions.add(new RestoreAction());
+        this.actions.add(new AddCommentAction());
     }
     /**
      * int[] initRange() - fill Range.
      * @return range - int[]
      */
     public int[] initRange() {
-        int[] range = new int[this.actions.length];
-        for (int i = 0; i < this.actions.length; i++) {
+        int[] range = new int[this.actions.size()];
+        for (int i = 0; i < this.actions.size(); i++) {
             range[i] = i;
         }
         return range;
@@ -105,7 +108,7 @@ public class TrackerMenu {
      * @param key - int
      */
     public void select(int key) {
-        this.actions[key].execute(this.input, this.tracker);
+        this.actions.get(key).execute(this.input, this.tracker);
     }
 
     /**
@@ -178,7 +181,7 @@ public class TrackerMenu {
          */
         @Override
         public void execute(Input input, Tracker tracker) {
-            Item[] items = tracker.findAll();
+            List<Item> items = tracker.findAll();
             for (Item item : items) {
                 if (item != null) {
                     System.out.println(String.format(
@@ -306,7 +309,7 @@ public class TrackerMenu {
          */
         @Override
         public void execute(Input input, Tracker tracker) {
-            Item[] items = tracker.findAllDeleteItems();
+            List<Item> items = tracker.findAllDeleteItems();
             for (Item item : items) {
                 if (item != null) {
                     System.out.println(String.format(
@@ -390,7 +393,7 @@ public class TrackerMenu {
          */
         @Override
         public void execute(Input input, Tracker tracker) {
-            Item[] items =  tracker.findByName(input.ask(lang.getLanguageFindByKey()[1]));
+            List<Item> items =  tracker.findByName(input.ask(lang.getLanguageFindByKey()[1]));
             for (Item item : items) {
                 System.out.println(String.format(
                         "[%s] [%s] [%s] [%s] [%s]",
