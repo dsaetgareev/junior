@@ -26,4 +26,16 @@ public class SortUserTest {
         Iterator<User> iterator = sort.sort(list).iterator();
         assertThat(iterator.next().getName(), is("B"));
     }
+    /**
+     * testing method sortLength() of class SortUser.
+     */
+    @Test
+    public void whenUserListThenUserListByNameLength() {
+        SortUser sort = new SortUser();
+        ArrayList<User> list = new ArrayList<>();
+        list.add(new User("Adam", 12));
+        list.add(new User("Boris", 11));
+        Iterator<User> iterator = sort.sortLength(list).iterator();
+        assertThat(iterator.next().getName(), is("Boris"));
+    }
 }
