@@ -1,6 +1,5 @@
 package ru.job4j.start;
 
-//import jdk.nashorn.internal.objects.annotations.Constructor;
 
 import java.util.ArrayList;
 import java.util.List;
