@@ -34,12 +34,7 @@ public class SortUser {
         Collections.sort(userList, new Comparator<User>() {
             @Override
             public int compare(User user1, User user2) {
-                int result = user1.hashCode() - user2.hashCode();
-                if (result == 0) {
-                    return 0;
-                } else {
-                    return result / Math.abs(result);
-                }
+                return Integer.compare(user1.hashCode(), user2.hashCode());
             }
         });
         return userList;
@@ -54,12 +49,7 @@ public class SortUser {
         Collections.sort(userList, new Comparator<User>() {
             @Override
             public int compare(User user1, User user2) {
-                int result = user2.getName().length() - user1.getName().length();
-                if (result == 0) {
-                    return 0;
-                } else {
-                    return result / Math.abs(result);
-                }
+              return Integer.compare(user2.getName().length(), user1.getName().length());
             }
         });
         return userList;
