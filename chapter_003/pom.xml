@@ -15,6 +15,7 @@
 		<module>collections</module>
 		<module>user</module>
 		<module>comparable</module>
+		<module>banking</module>
 	</modules>
 
 </project>
