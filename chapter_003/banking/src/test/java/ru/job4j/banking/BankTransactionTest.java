@@ -70,12 +70,13 @@ public class BankTransactionTest {
         User user1 = new User("A", "8007 345 654");
         User user2 = new User("B", "8007 325 694");
         Account account = new Account(10000, "4276 0600 3435 6634");
+        Account account1 = new Account(10000, "4276 0600 3435 6634");
         ArrayList<Account> arrayList = new ArrayList<>();
         arrayList.add(account);
         database.put(user1, arrayList);
         database.put(user2, new ArrayList<>());
         assertThat(database.size(), is(2));
-        bt.deleteAccountFromUser(user1, account);
+        bt.deleteAccountFromUser(user1, account1);
         assertThat(database.get(user1).size(), is(0));
     }
     /**

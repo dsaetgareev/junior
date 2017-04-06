@@ -32,7 +32,7 @@ public class BankTransaction {
      * @param user - a new user
      */
     public void addUser(User user) {
-        database.put(user, new ArrayList<Account>());
+            database.put(user, new ArrayList<Account>());
     }
 
     /**
@@ -40,7 +40,9 @@ public class BankTransaction {
      * @param user - user you wont to delete
      */
     public void deleteUser(User user) {
-       this.database.remove(user);
+        if (user != null && database.containsKey(user)) {
+            this.database.remove(user);
+        }
     }
 
     /**
@@ -49,7 +51,9 @@ public class BankTransaction {
      * @param account - that add
      */
     public void addAccountToUser(User user, Account account) {
-        this.database.get(user).add(account);
+        if (user != null && database.containsKey(user)) {
+            this.database.get(user).add(account);
+        }
     }
 
     /**
@@ -58,13 +62,16 @@ public class BankTransaction {
      * @param account - from which delete
      */
     public void deleteAccountFromUser(User user, Account account) {
-        Iterator<Account> iterator = this.database.get(user).iterator();
-        while (iterator.hasNext()) {
-            if (iterator.next().equals(account)) {
-                iterator.remove();
+        if (user != null && database.containsKey(user)) {
+            Iterator<Account> iterator = this.database.get(user).iterator();
+            while (iterator.hasNext()) {
+                if (iterator.next().equals(account)) {
+                    iterator.remove();
+                }
             }
         }
     }
+
 
     /**
      * get list user's account.
@@ -72,6 +79,9 @@ public class BankTransaction {
      * @return list
      */
     public List<Account> getUserAccounts(User user) {
+        if (user != null && database.containsKey(user)) {
+            return this.database.get(user);
+        }
         return this.database.get(user);
     }
 
@@ -86,13 +96,16 @@ public class BankTransaction {
      */
     public boolean transferMoney(User srcUser, Account srcAccount, User dstUser, Account dstAccount, double amount) {
         boolean transfer = false;
-        for (Account srcTemp : this.database.get(srcUser)) {
-            for (Account dstTemp : this.database.get(dstUser)) {
-                if (srcTemp.equals(srcAccount) && srcTemp.getValue() > amount
-                        && dstTemp.equals(dstAccount)) {
-                    srcTemp.setValue(srcTemp.getValue() - amount);
-                    dstTemp.setValue(dstTemp.getValue() + amount);
-                    transfer = true;
+        if (srcUser != null && database.containsKey(srcUser)
+                && dstUser != null && database.containsKey(dstUser)) {
+            for (Account srcTemp : this.database.get(srcUser)) {
+                for (Account dstTemp : this.database.get(dstUser)) {
+                    if (srcTemp.equals(srcAccount) && srcTemp.getValue() > amount
+                            && dstTemp.equals(dstAccount)) {
+                        srcTemp.setValue(srcTemp.getValue() - amount);
+                        dstTemp.setValue(dstTemp.getValue() + amount);
+                        transfer = true;
+                    }
                 }
             }
         }
