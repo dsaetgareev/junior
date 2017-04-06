@@ -67,6 +67,7 @@ public class BankTransaction {
             while (iterator.hasNext()) {
                 if (iterator.next().equals(account)) {
                     iterator.remove();
+                    break;
                 }
             }
         }
