@@ -14,7 +14,7 @@ public class IteratorSimple implements Iterator {
     /**
      * ArrayList.
      */
-    private ArrayList<Integer> list = new ArrayList<>();
+    private ArrayList<Integer> list;
     /**
      * index of iterator.
      */
