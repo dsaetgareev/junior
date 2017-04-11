@@ -16,14 +16,14 @@ public class IteratorArrayTest {
      */
     @Test
     public void whenArrayThenIterator() {
-        IteratorArray arrayIt = new IteratorArray(new int[][] {
+        IteratorArray<Integer> arrayIt = new IteratorArray<>(new int[][] {
                 {1, 2, 3},
                 {4, 5, 6},
                 {7, 8, 9}
         });
         int j = 0;
         for (int i = 0; i < 5; i++) {
-           j = (Integer) arrayIt.next();
+           j = arrayIt.next();
         }
         assertThat(j, is(5));
     }

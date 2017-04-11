@@ -7,8 +7,9 @@ import java.util.Iterator;
  * @author Dinis Saetgareev (dinis0086@mail.ru)
  * @since 09.04.2017
  * @version 1.0
+ * @param <E> element
  */
-public class IteratorArray implements Iterator {
+public class IteratorArray<E> implements Iterator<E> {
     /**
      * array.
      */
@@ -52,7 +53,7 @@ public class IteratorArray implements Iterator {
      * return next element.
      * @return next element
      */
-    public Object next() {
+    public E next() {
         Object[] result = new Object[length()];
         int i = 0;
         for (int[] array : this.values) {
@@ -60,6 +61,6 @@ public class IteratorArray implements Iterator {
                 result[i++] = element;
             }
         }
-        return  result[index++];
+        return  (E) result[index++];
     }
 }
