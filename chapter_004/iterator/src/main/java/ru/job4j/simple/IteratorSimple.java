@@ -19,6 +19,10 @@ public class IteratorSimple implements Iterator {
      * index of iterator.
      */
     private int index = 0;
+    /**
+     * count for next().
+     */
+    private int countNext = 0;
 
     /**
      * constructor.
@@ -35,7 +39,19 @@ public class IteratorSimple implements Iterator {
      * @return boolean
      */
     public boolean hasNext() {
-        return this.list.size() > index;
+        int countSimple = 0;
+        for (int i = this.index; i < this.list.size(); i++) {
+            int count = 0;
+            for (int j = 1; j < this.list.get(i); j++) {
+                if (j != 1 && this.list.get(i) % j == 0) {
+                    count++;
+                }
+            }
+            if (this.list.get(i) != 1 && count == 0) {
+                countSimple++;
+            }
+        }
+        return countSimple > countNext;
     }
 
     /**

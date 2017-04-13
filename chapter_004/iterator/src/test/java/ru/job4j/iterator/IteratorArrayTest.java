@@ -16,7 +16,7 @@ public class IteratorArrayTest {
      */
     @Test
     public void whenArrayThenIterator() {
-        IteratorArray<Integer> arrayIt = new IteratorArray<>(new int[][] {
+        IteratorArray arrayIt = new IteratorArray(new int[][] {
                 {1, 2, 3},
                 {4, 5, 6},
                 {7, 8, 9}
@@ -26,5 +26,23 @@ public class IteratorArrayTest {
            j = arrayIt.next();
         }
         assertThat(j, is(5));
+    }
+    /**
+     * testing method hasNext() of IteratorArray.
+     */
+    @Test
+    public void whenNextThenHasNext() {
+        IteratorArray arrayIt = new IteratorArray(new int[][] {
+                {1, 2, 3},
+        });
+
+        arrayIt.next();
+        assertThat(arrayIt.hasNext(), is(true));
+
+        int j = 0;
+        for (int i = 0; i < 2; i++) {
+            j = arrayIt.next();
+        }
+        assertThat(arrayIt.hasNext(), is(false));
     }
 }

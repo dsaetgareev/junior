@@ -18,6 +18,10 @@ public class IteratorEven implements Iterator {
      * index of iterator.
      */
     private int index = 0;
+    /**
+     * count for next().
+     */
+    private int countNext = 0;
 
     /**
      * constructor.
@@ -32,7 +36,13 @@ public class IteratorEven implements Iterator {
      * @return boolean
      */
     public boolean hasNext() {
-        return this.list.size() > index;
+        int count = 0;
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) % 2 == 0) {
+                count++;
+            }
+        }
+        return count > this.countNext;
     }
 
     /**
@@ -45,6 +55,7 @@ public class IteratorEven implements Iterator {
            if (list.get(i) % 2 == 0) {
                result = list.get(i);
                index = i + 1;
+               countNext++;
                break;
            }
         }

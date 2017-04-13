@@ -4,23 +4,32 @@ import java.util.Iterator;
 
 /**
  * class IteratorArray implements Iterator.
+ *
  * @author Dinis Saetgareev (dinis0086@mail.ru)
- * @since 09.04.2017
  * @version 1.0
- * @param <E> element
+ * @since 09.04.2017
  */
-public class IteratorArray<E> implements Iterator<E> {
+public class IteratorArray implements Iterator {
     /**
      * array.
      */
     private int[][] values;
     /**
-     * index for iterator.
+     * index for column.
      */
-    private int index = 0;
+    private int indexColumn = 0;
+    /**
+     * index for line.
+     */
+    private int indexLine = 0;
+    /**
+     * number of iterations.
+     */
+    private int count = 0;
 
     /**
      * constructor.
+     *
      * @param values - new values
      */
     public IteratorArray(int[][] values) {
@@ -29,38 +38,43 @@ public class IteratorArray<E> implements Iterator<E> {
 
     /**
      * calculate this.values length.
+     *
      * @return count
      */
     public int length() {
         int count = 0;
         for (int[] array : this.values) {
-            for (int element : array) {
-                count++;
-            }
+            count += array.length;
         }
         return count;
     }
 
     /**
      * checks for the next element.
+     *
      * @return boolean
      */
     public boolean hasNext() {
-        return this.length() > this.index;
+        return this.length() > this.count;
     }
 
     /**
      * return next element.
+     *
      * @return next element
      */
-    public E next() {
-        Object[] result = new Object[length()];
-        int i = 0;
-        for (int[] array : this.values) {
-            for (int element : array) {
-                result[i++] = element;
+    public Integer next() {
+        Integer result = 0;
+        for (int i = this.indexLine; i < this.values.length; i++) {
+            result = this.values[i][this.indexColumn];
+            this.indexColumn++;
+            if (this.indexColumn == this.values[i].length) {
+                this.indexColumn = 0;
+                this.indexLine = i + 1;
             }
+            this.count++;
+            break;
         }
-        return  (E) result[index++];
+        return result;
     }
 }

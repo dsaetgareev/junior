@@ -34,4 +34,26 @@ public class IteratorSimpleTest {
         assertThat(it.next(), is(2));
         assertThat(it.next(), is(5));
     }
+
+    /**
+     * testing method hasNext().
+     */
+    @Test
+    public void whenNextThenHasNext() {
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(6);
+        list.add(3);
+        list.add(2);
+        list.add(5);
+        list.add(4);
+        IteratorSimple it = new IteratorSimple(list);
+
+        it.next();
+        it.next();
+        assertThat(it.hasNext(), is(true));
+
+        it.next();
+        assertThat(it.hasNext(), is(false));
+    }
 }
