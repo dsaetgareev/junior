@@ -37,25 +37,16 @@ public class IteratorArray implements Iterator {
     }
 
     /**
-     * calculate this.values length.
-     *
-     * @return count
-     */
-    public int length() {
-        int count = 0;
-        for (int[] array : this.values) {
-            count += array.length;
-        }
-        return count;
-    }
-
-    /**
      * checks for the next element.
      *
      * @return boolean
      */
     public boolean hasNext() {
-        return this.length() > this.count;
+        int countHasNext = 0;
+        for (int[] array : this.values) {
+            countHasNext += array.length;
+        }
+        return countHasNext > this.count;
     }
 
     /**
