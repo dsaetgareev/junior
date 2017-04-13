@@ -1,13 +1,13 @@
 package ru.job4j.generic;
 
 /**
- * class SimpleArray<T> implements a container.
+ * class SimpleArray<E> implements a container.
  * @author Dinis Saetgareev (dinis0086@mail.ru)
  * @since 13.04.2017
  * @version 1.0
- * @param <T> - some type
+ * @param <E> - some type
  */
-public class SimpleArray<T> {
+public class SimpleArray<E> {
     /**
      * array for objects.
      */
@@ -29,7 +29,7 @@ public class SimpleArray<T> {
      * constructor.
      * @param objects - new objects
      */
-    public SimpleArray(T[] objects) {
+    public SimpleArray(E[] objects) {
         this.objects = objects;
     }
 
@@ -37,7 +37,7 @@ public class SimpleArray<T> {
      * add new element.
      * @param value - new element
      */
-    public void add(T value) {
+    public void add(E value) {
         this.objects[this.index++] = value;
     }
 
@@ -46,8 +46,8 @@ public class SimpleArray<T> {
      * @param position - index position
      * @return - object
      */
-    public T get(int position) {
-        return (T) this.objects[position];
+    public E get(int position) {
+        return (E) this.objects[position];
     }
 
     /**
@@ -55,7 +55,7 @@ public class SimpleArray<T> {
      * @param position - position of this.objects
      * @param value - new value
      */
-    public void update(int position, T value) {
+    public void update(int position, E value) {
         this.objects[position] = value;
     }
 
@@ -72,7 +72,7 @@ public class SimpleArray<T> {
      * remove by value.
      * @param value - value of this.objects
      */
-    public void delete(T value) {
+    public void delete(E value) {
         for (int i = 0; i < this.objects.length; i++) {
             if (this.objects[i].equals(value)) {
                 int amountElement = this.objects.length - i - 1;
