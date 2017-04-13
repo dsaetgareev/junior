@@ -27,6 +27,12 @@ public class SimpleArrayTest {
         values.add("e");
 
         assertThat(values.get(3), is("e"));
+
+        for (int i = 0; i < 10; i++) {
+            values.add("d");
+        }
+
+        assertThat(values.get(10), is("d"));
     }
 
     /**

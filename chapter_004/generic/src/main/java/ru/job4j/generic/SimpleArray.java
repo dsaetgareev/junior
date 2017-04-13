@@ -22,7 +22,7 @@ public class SimpleArray<E> {
      * @param size - size of array.
      */
     public SimpleArray(int size) {
-        this.objects = new Object[size];
+        this.objects = (E[]) new Object[size];
     }
 
     /**
@@ -39,6 +39,12 @@ public class SimpleArray<E> {
      */
     public void add(E value) {
         this.objects[this.index++] = value;
+        if (this.index == this.objects.length) {
+            int size = (int) (this.index * 1.5);
+            Object[] temp = new Object[size];
+            System.arraycopy(this.objects, 0, temp, 0, index);
+            this.objects = temp;
+        }
     }
 
     /**
