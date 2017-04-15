@@ -22,10 +22,10 @@ public class IteratorArrayTest {
                 {7, 8, 9}
         });
         int j = 0;
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 9; i++) {
            j = arrayIt.next();
         }
-        assertThat(j, is(5));
+        assertThat(j, is(9));
     }
     /**
      * testing method hasNext() of IteratorArray.
@@ -35,14 +35,12 @@ public class IteratorArrayTest {
         IteratorArray arrayIt = new IteratorArray(new int[][] {
                 {1, 2, 3},
         });
-
+        assertThat(arrayIt.hasNext(), is(true));
         arrayIt.next();
         assertThat(arrayIt.hasNext(), is(true));
-
-        int j = 0;
-        for (int i = 0; i < 2; i++) {
-            j = arrayIt.next();
-        }
+        arrayIt.next();
+        assertThat(arrayIt.hasNext(), is(true));
+        arrayIt.next();
         assertThat(arrayIt.hasNext(), is(false));
     }
 }

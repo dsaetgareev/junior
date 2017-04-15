@@ -22,10 +22,6 @@ public class IteratorArray implements Iterator {
      * index for line.
      */
     private int indexLine = 0;
-    /**
-     * number of iterations.
-     */
-    private int count = 0;
 
     /**
      * constructor.
@@ -42,11 +38,16 @@ public class IteratorArray implements Iterator {
      * @return boolean
      */
     public boolean hasNext() {
+        int count = 0;
         int countHasNext = 0;
         for (int[] array : this.values) {
             countHasNext += array.length;
         }
-        return countHasNext > this.count;
+        for (int i = 0; i < this.indexLine; i++) {
+            count += this.values[i].length;
+        }
+        count += this.indexColumn;
+        return countHasNext > count;
     }
 
     /**
@@ -55,16 +56,12 @@ public class IteratorArray implements Iterator {
      * @return next element
      */
     public Integer next() {
-        Integer result = 0;
-        for (int i = this.indexLine; i < this.values.length; i++) {
-            result = this.values[i][this.indexColumn];
+        Integer result = this.values[this.indexLine][this.indexColumn];
+        if (this.indexColumn == this.values[this.indexLine].length - 1) {
+            this.indexColumn = 0;
+            this.indexLine = this.indexLine + 1;
+        } else {
             this.indexColumn++;
-            if (this.indexColumn == this.values[i].length) {
-                this.indexColumn = 0;
-                this.indexLine = i + 1;
-            }
-            this.count++;
-            break;
         }
         return result;
     }
