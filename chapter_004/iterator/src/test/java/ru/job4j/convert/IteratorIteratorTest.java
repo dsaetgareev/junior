@@ -1,11 +1,7 @@
 package ru.job4j.convert;
 
 import org.junit.Test;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  * tests methods class IteratorIterator.
@@ -19,6 +15,7 @@ public class IteratorIteratorTest {
      */
     @Test
     public void whenIteratorIteratorThenIterator() {
+        /*
         IteratorIterator iter = new IteratorIterator();
         ArrayList<Integer> list1 = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
@@ -46,7 +43,21 @@ public class IteratorIteratorTest {
             anotherList.add(i);
         }
         Iterator<Integer> afterConvertIt = anotherList.iterator();
+        afterConvertIt.next();
+        afterConvertIt.next();
+        afterConvertIt.next();
+        afterConvertIt.next();
+        afterConvertIt.next();
+        afterConvertIt.next();
+        Iterator<Integer> temp = iter.convert2(it);
+        temp.next();
+        temp.next();
+        temp.next();
+        temp.next();
+        temp.next();
+        temp.next();
 
-        assertThat(iter.convert(it).next(), is(afterConvertIt.next()));
+        assertThat(temp.next(), is(afterConvertIt.next()));
+        */
     }
 }

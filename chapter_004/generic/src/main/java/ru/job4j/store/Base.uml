@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>ru.job4j.store.Base</OriginalElement>
+  <nodes>
+    <node x="0.0" y="214.0">ru.job4j.store.User</node>
+    <node x="65.5" y="0.0">ru.job4j.store.Base</node>
+    <node x="186.0" y="214.0">ru.job4j.store.Role</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ru.job4j.store.User" target="ru.job4j.store.Base">
+      <point x="0.0" y="-37.5" />
+      <point x="83.0" y="189.0" />
+      <point x="120.75" y="189.0" />
+      <point x="-55.25" y="82.0" />
+    </edge>
+    <edge source="ru.job4j.store.Role" target="ru.job4j.store.Base">
+      <point x="0.0" y="-37.5" />
+      <point x="269.0" y="189.0" />
+      <point x="231.25" y="189.0" />
+      <point x="55.25" y="82.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="176.0" y="144.5" />
+  <SelectedNodes>
+    <node>ru.job4j.store.Base</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+    <Category>Constructors</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

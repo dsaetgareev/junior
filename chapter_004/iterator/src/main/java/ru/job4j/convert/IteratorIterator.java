@@ -25,4 +25,19 @@ public class IteratorIterator {
         }
         return list.iterator();
     }
+    /**
+     * converting Iterator<Iterator<Integer>> to Iterator<Integer>.
+     * @param it Iterator<Iterator<Integer>>
+     * @return Iterator<Integer>
+     */
+    public Iterator<Integer> convert2(Iterator<Iterator<Integer>> it) {
+        Iterator<Integer> current = null;
+        if (current == null) {
+            current = it.next();
+        }
+        while (!current.hasNext()) {
+            current = it.next();
+        }
+        return current;
+    }
 }
