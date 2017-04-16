@@ -61,6 +61,12 @@ public class SimpleArrayTest {
         values.delete(1);
 
         assertThat(values.get(1), is("c"));
+
+        values.delete(2);
+        System.out.println(values.get(2) + " " + values.get(3));
+        assertThat(values.size(), is(2));
+
+
     }
 
     /**
@@ -76,5 +82,20 @@ public class SimpleArrayTest {
         values.delete("b");
 
         assertThat(values.get(1), is("c"));
+    }
+
+    /**
+     * testing method size().
+     */
+    @Test
+    public void whenAddThenSize() {
+        String[] objects = new String[]{"a", "b", "c", "e"};
+        SimpleArray<String> values = new SimpleArray<String>(objects);
+
+        assertThat(values.size(), is(4));
+
+        values.delete(0);
+
+        assertThat(values.size(), is(3));
     }
 }
