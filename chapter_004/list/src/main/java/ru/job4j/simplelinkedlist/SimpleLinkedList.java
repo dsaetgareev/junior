@@ -17,15 +17,15 @@ public class SimpleLinkedList<E> implements SimpleContainer<E>, Iterable<E> {
     /**
      * size of container.
      */
-    private transient int size = 0;
+    private int size = 0;
     /**
      * first element.
      */
-    private transient SimpleNode<E> first;
+    private SimpleNode<E> first;
     /**
      * last element.
      */
-    private transient SimpleNode<E> last;
+    private SimpleNode<E> last;
 
     /**
      * constructor.
