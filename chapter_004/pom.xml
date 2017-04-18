@@ -15,6 +15,7 @@
                  <module>iterator</module>
 		<module>generic</module>
 		<module>list</module>
+                <module>set</module>
 	</modules>
 
 </project>
