@@ -60,13 +60,12 @@ public class SimpleArraySet<E> {
      * @return boolean
      */
     public boolean hasDuplicate(E e) {
-        int count = 0;
-        for (int i = 0; i < size; i++) {
-            if (e.equals(this.arraySet[i])) {
-                count++;
+        for (Object elem : this.arraySet) {
+            if (e.equals(elem)) {
+                return false;
             }
         }
-        return count == 0 ? true : false;
+        return true;
     }
 
     /**
