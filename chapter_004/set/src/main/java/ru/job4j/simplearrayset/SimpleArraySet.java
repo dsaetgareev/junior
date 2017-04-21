@@ -36,6 +36,24 @@ public class SimpleArraySet<E> {
     }
 
     /**
+     * constructor.
+     * @param arraySet - new arraySet
+     * @param size - new size
+     */
+    public SimpleArraySet(E[] arraySet, int size) {
+        this.arraySet = arraySet;
+        this.size = size;
+    }
+
+    /**
+     * gets this.arraySet.
+     * @return this.arraySet
+     */
+    public E[] getArraySet() {
+        return (E[]) this.arraySet;
+    }
+
+    /**
      * adds new element.
      * @param e - new element
      */
@@ -48,9 +66,7 @@ public class SimpleArraySet<E> {
                 this.arraySet[size] = e;
                 this.size++;
             }
-            if (this.size == this.arraySet.length) {
-                this.increaseArray();
-            }
+            this.increaseArray();
         }
     }
 
@@ -72,10 +88,12 @@ public class SimpleArraySet<E> {
      * increases array.
      */
     public void increaseArray() {
-        int length = (int) (this.size * 1.5);
-        Object[] temp = new Object[length];
-        System.arraycopy(this.arraySet, 0, temp, 0, this.size);
-        this.arraySet = temp;
+        if (this.size == this.arraySet.length) {
+            int length = (int) (this.size * 1.5);
+            Object[] temp = new Object[length];
+            System.arraycopy(this.arraySet, 0, temp, 0, this.size);
+            this.arraySet = temp;
+        }
     }
 
     /**
@@ -84,6 +102,13 @@ public class SimpleArraySet<E> {
      */
     public int size() {
         return this.size;
+    }
+
+    /**
+     * iterates this.size.
+     */
+    public void sizeIter() {
+        this.size++;
     }
     /**
      * iterator.
