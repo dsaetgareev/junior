@@ -41,9 +41,13 @@ public class SetsTest {
 
         QuickSet<Integer> quickSet = new QuickSet<>();
 
+        QuickSet<Integer> quickSortingSet = new QuickSortingSet<>();
+
         System.out.println("SimpleArraySet = " + SetsTest.add(simpleSet) + "ms");
 
         System.out.println("QuickSet = " + SetsTest.add(quickSet) + "ms");
+
+        System.out.println("QuickSortingSet = " + SetsTest.add(quickSortingSet) + "ms");
     }
 
 }
