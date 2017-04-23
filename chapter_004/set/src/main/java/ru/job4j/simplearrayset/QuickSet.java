@@ -51,7 +51,7 @@ public class QuickSet<E> extends SimpleArraySet<E> {
      */
     public void add(int index, E e) {
         shiftCells(index);
-        super.getArraySet()[index] = e;
+        super.getArraySet()[index + 1] = e;
         super.sizeIter();
     }
 

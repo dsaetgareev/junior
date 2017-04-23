@@ -110,6 +110,16 @@ public class SimpleArraySet<E> {
     public void sizeIter() {
         this.size++;
     }
+
+    /**
+     * get element.
+     * @param position - index of position
+     * @return element
+     */
+    @SuppressWarnings("unchecked")
+    public E get(int position) {
+        return (E) this.arraySet[position];
+    }
     /**
      * iterator.
      * @return - Iterator<E>
