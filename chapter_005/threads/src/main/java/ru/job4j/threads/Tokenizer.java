@@ -35,7 +35,6 @@ public class Tokenizer {
         while (st.hasMoreTokens()) {
             st.nextToken();
             countWord++;
-            System.out.println("Now the words = " + countWord);
         }
         return countWord;
     }
@@ -50,7 +49,6 @@ public class Tokenizer {
             char s = this.string.charAt(i);
             if (s == ' ') {
                 countSpc++;
-                System.out.println("Now the spaces = " + countSpc);
             }
         }
         return countSpc;
