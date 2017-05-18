@@ -32,7 +32,7 @@ public class Tokenizer {
 
         StringTokenizer st = new StringTokenizer(text);
 
-        while (st.hasMoreTokens()) {
+        while (!Thread.currentThread().isInterrupted() && st.hasMoreTokens()) {
             st.nextToken();
             countWord++;
         }
@@ -45,7 +45,7 @@ public class Tokenizer {
      */
     public int countSpaces() {
         int countSpc = 0;
-        for (int i = 0; i < this.text.length(); i++) {
+        for (int i = 0; i < this.text.length() && !Thread.currentThread().isInterrupted(); i++) {
             char s = this.text.charAt(i);
             if (s == ' ') {
                 countSpc++;
