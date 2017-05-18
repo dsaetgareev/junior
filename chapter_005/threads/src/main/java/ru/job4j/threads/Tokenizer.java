@@ -12,14 +12,14 @@ public class Tokenizer {
     /**
      * string.
      */
-    private String string;
+    private String text;
 
     /**
      * constructor.
-     * @param string - new string
+     * @param text - new string
      */
-    public Tokenizer(String string) {
-        this.string = string;
+    public Tokenizer(String text) {
+        this.text = text;
     }
 
     /**
@@ -30,7 +30,7 @@ public class Tokenizer {
 
         int countWord = 0;
 
-        StringTokenizer st = new StringTokenizer(string);
+        StringTokenizer st = new StringTokenizer(text);
 
         while (st.hasMoreTokens()) {
             st.nextToken();
@@ -45,8 +45,8 @@ public class Tokenizer {
      */
     public int countSpaces() {
         int countSpc = 0;
-        for (int i = 0; i < this.string.length(); i++) {
-            char s = this.string.charAt(i);
+        for (int i = 0; i < this.text.length(); i++) {
+            char s = this.text.charAt(i);
             if (s == ' ') {
                 countSpc++;
             }
