@@ -13,6 +13,7 @@
 
 	<modules>
                  <module>threads</module>
+                 <module>JMM</module>
 	</modules>
 
 </project>
