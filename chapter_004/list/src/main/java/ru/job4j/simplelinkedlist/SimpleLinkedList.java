@@ -38,7 +38,7 @@ public class SimpleLinkedList<E> implements SimpleContainer<E>, Iterable<E> {
      * adds new element.
      * @param e -new element
      */
-    public void add(E e) {
+    public synchronized void add(E e) {
         final SimpleNode<E> l = last;
         final SimpleNode<E> newSNode = new SimpleNode(l, e, null);
         last = newSNode;
@@ -54,7 +54,7 @@ public class SimpleLinkedList<E> implements SimpleContainer<E>, Iterable<E> {
      * return size.
      * @return size
      */
-    public int size() {
+    public synchronized int size() {
         return size;
     }
 
@@ -63,7 +63,7 @@ public class SimpleLinkedList<E> implements SimpleContainer<E>, Iterable<E> {
      * @param index - index of element
      * @return element
      */
-    public E get(int index) {
+    public synchronized E get(int index) {
         E result = null;
         if (index >= 0 && index < size) {
             if (index < (size / 2)) {
@@ -87,7 +87,7 @@ public class SimpleLinkedList<E> implements SimpleContainer<E>, Iterable<E> {
      * remove element by index.
      * @param index - index of element that remove
      */
-    public void remove(int index) {
+    public synchronized void remove(int index) {
         SimpleNode<E> temp = null;
         if (index >= 0 && index < size) {
             if (index < (size >> 1)) {
@@ -159,7 +159,7 @@ public class SimpleLinkedList<E> implements SimpleContainer<E>, Iterable<E> {
      * iterator().
      * @return Iterator<E>
      */
-    public Iterator<E> iterator() {
+    public synchronized Iterator<E> iterator() {
         return new SimpleLinkedIterator();
     }
 

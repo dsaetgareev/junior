@@ -46,7 +46,7 @@ public class SimpleArrayList<E> implements SimpleContainer<E> {
      *
      * @param e -new element
      */
-    public void add(E e) {
+    public synchronized void add(E e) {
         this.objects[this.size++] = e;
         if (this.size == this.objects.length) {
             int length = (int) (this.size * 1.5);
@@ -61,7 +61,7 @@ public class SimpleArrayList<E> implements SimpleContainer<E> {
      *
      * @return - size
      */
-    public int size() {
+    public synchronized int size() {
         return this.size;
     }
 
@@ -71,7 +71,7 @@ public class SimpleArrayList<E> implements SimpleContainer<E> {
      * @param index - index of element
      * @return e - element
      */
-    public E get(int index) {
+    public synchronized E get(int index) {
         return (E) this.objects[index];
     }
 
@@ -80,7 +80,7 @@ public class SimpleArrayList<E> implements SimpleContainer<E> {
      *
      * @param index - index of element
      */
-    public void remove(int index) {
+    public synchronized void remove(int index) {
         int amountElement = this.objects.length - index - 1;
         System.arraycopy(this.objects, index + 1, this.objects, index, amountElement);
         this.size--;
@@ -90,7 +90,7 @@ public class SimpleArrayList<E> implements SimpleContainer<E> {
      * iterator.
      * @return - Iterator<E>
      */
-    public Iterator<E> iterator() {
+    public synchronized Iterator<E> iterator() {
         return new SimpleArrayListIterator();
     }
     /**
