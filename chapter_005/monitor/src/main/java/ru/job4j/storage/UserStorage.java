@@ -36,7 +36,7 @@ public class UserStorage {
      * @param name - name of User
      * @param amount - amount of User
      */
-    public void addNewUser(String name, long amount) {
+    public synchronized void addNewUser(String name, long amount) {
         int id = new Random().nextInt();
         userMap.put(id, new User(id, name, amount));
     }
@@ -46,7 +46,7 @@ public class UserStorage {
      * @param id - id of User
      * @return user
      */
-    public User findUser(int id) {
+    public synchronized User findUser(int id) {
         return this.userMap.get(id);
     }
 
@@ -54,7 +54,7 @@ public class UserStorage {
      * removes User.
      * @param id - id of User
      */
-    public void removeUser(int id) {
+    public synchronized void removeUser(int id) {
         this.userMap.remove(id);
     }
 
@@ -64,7 +64,7 @@ public class UserStorage {
      * @param name - new name
      * @param amount - new amount
      */
-    public void updateUser(int id, String name, long amount) {
+    public synchronized void updateUser(int id, String name, long amount) {
         this.userMap.put(id, new User(id, name, amount));
     }
 
@@ -75,7 +75,7 @@ public class UserStorage {
      * @param amount - amount of transfer
      * @return - boolean
      */
-    public boolean transactions(int id1, int id2, long amount) {
+    public synchronized boolean transactions(int id1, int id2, long amount) {
         synchronized (this) {
             boolean result = false;
             User user1 = findUser(id1);
@@ -95,7 +95,7 @@ public class UserStorage {
      * returns size users.
      * @return this.userMap.size()
      */
-    public int sizeUsers() {
+    public synchronized int sizeUsers() {
         return this.userMap.size();
     }
 }
