@@ -24,7 +24,7 @@ public class Count {
      * gets count.
      * @return this.count
      */
-    public int getCount() {
+    public synchronized int getCount() {
         return this.count;
     }
 
