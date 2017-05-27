@@ -15,6 +15,7 @@
                  <module>threads</module>
                  <module>JMM</module>
                  <module>monitor</module>
+                 <module>wait</module>
 	</modules>
 
 </project>
