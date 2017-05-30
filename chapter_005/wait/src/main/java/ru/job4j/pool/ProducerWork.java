@@ -29,7 +29,7 @@ public class ProducerWork implements Runnable {
      */
     @Override
     public void run() {
-        while (true) {
+        for (int i = 0; i < 5; i++) {
             Calendar cal = new GregorianCalendar(2017, 1, 1);
             cal.add(Calendar.DAY_OF_YEAR, new Random().nextInt(365));
             if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY) {
