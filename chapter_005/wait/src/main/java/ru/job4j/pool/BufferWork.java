@@ -23,6 +23,14 @@ public class BufferWork {
     }
 
     /**
+     * gets this.works.
+     * @return - this.works
+     */
+    public ArrayList<Work> getWorks() {
+        return this.works;
+    }
+
+    /**
      * adds new work.
      * @param work - new work
      */

@@ -2,6 +2,8 @@ package ru.job4j.pool;
 
 
 import java.text.ParseException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 /**
@@ -16,16 +18,23 @@ public class ProducerConsumerWork {
      * @param args - String[]
      * @throws ParseException - exception
      */
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) throws ParseException, InterruptedException {
 
         BufferWork bufferWork = new BufferWork();
 
-        new Thread(new ProducerWork(bufferWork)).start();
+        ExecutorService producer = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors() + 1);
 
-
-        for (int j = 0; j < Runtime.getRuntime().availableProcessors(); j++) {
-            new Thread(new ConsumerWork(bufferWork)).start();
+        ExecutorService consumer = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors() + 1);
+        for (int j = 0; j < Runtime.getRuntime().availableProcessors() + 1; j++) {
+            producer.submit(new ProducerWork(bufferWork));
+            Thread.sleep(100);
+            consumer.submit(new ConsumerWork(bufferWork));
         }
+
+        producer.shutdown();
+        consumer.shutdown();
+        System.out.println("producer is shutdown? " + producer.isShutdown());
+        System.out.println("consumer is shutdown? " + consumer.isShutdown());
     }
 
 

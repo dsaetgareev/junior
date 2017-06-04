@@ -27,7 +27,7 @@ public class ConsumerWork implements Runnable {
      */
     @Override
     public void run() {
-        while (true) {
+       while (this.bufferWork.getWorks().size() != 0) {
             try {
                 this.bufferWork.get().calculateDate2();
             } catch (ParseException pe) {

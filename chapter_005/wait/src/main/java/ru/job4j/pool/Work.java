@@ -37,6 +37,7 @@ public class Work {
      */
     public Calendar calculateDate2() throws ParseException {
             int count;
+        System.out.println(Thread.currentThread().getName());
             Calendar newCalendar = (Calendar) this.calendar.clone();
             newCalendar.add(Calendar.DAY_OF_YEAR, 14);
             count = countHolidayInRang(this.calendar, newCalendar);
