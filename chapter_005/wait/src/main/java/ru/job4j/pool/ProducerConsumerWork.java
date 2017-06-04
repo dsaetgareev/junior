@@ -17,6 +17,7 @@ public class ProducerConsumerWork {
      * method main.
      * @param args - String[]
      * @throws ParseException - exception
+     * @throws InterruptedException - exception
      */
     public static void main(String[] args) throws ParseException, InterruptedException {
 
