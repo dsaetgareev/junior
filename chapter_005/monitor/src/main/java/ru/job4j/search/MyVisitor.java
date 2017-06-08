@@ -44,7 +44,8 @@ public class MyVisitor extends SimpleFileVisitor {
        while (!stop) {
             if (this.s != null && ((Path) file).getFileName().toString().contains(this.s)) {
                 System.out.println(Thread.currentThread().getName());
-                System.out.println("file: " + this.s + "  found!");
+                System.out.println("I am walkVisitor, file: " + this.s + "  found!"
+                        + "\nThe file is locate at: " + ((Path) file).getParent());
                 this.stop = true;
                 return FileVisitResult.TERMINATE;
             } else {

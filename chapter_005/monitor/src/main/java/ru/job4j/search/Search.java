@@ -44,7 +44,8 @@ public class Search {
                 if (root.isFile() && root.getName().equals(this.s)) {
                     this.stop = true;
                     System.out.println(Thread.currentThread().getName());
-                    System.out.println("file " + this.s + " found!\nThe file is locate at: " + root.getAbsolutePath());
+                    System.out.println("I am walkRecur, file " + this.s + " found!"
+                            + "\nThe file is locate at: " + root.getAbsolutePath());
                 }
             } else {
                 File[] files = root.listFiles();
