@@ -16,8 +16,11 @@ public class SearchTest {
     public static void main(String[] args) {
         String s = new Scanner(System.in).nextLine();
         Search search = new Search(s);
-        for (int i = 0; i < Runtime.getRuntime().availableProcessors() + 1; i++) {
-            new Thread(new Searching(search)).start();
-        }
+
+
+        new Thread(new Searching(search, false)).start();
+        new Thread(new Searching(search, true)).start();
+
+
     }
 }
