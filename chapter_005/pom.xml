@@ -16,6 +16,7 @@
                  <module>JMM</module>
                  <module>monitor</module>
                  <module>wait</module>
+                 <module>nonblock</module>
 	</modules>
 
 </project>
