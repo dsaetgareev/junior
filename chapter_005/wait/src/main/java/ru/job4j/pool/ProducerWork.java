@@ -38,8 +38,9 @@ public class ProducerWork implements Runnable {
             if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
                 cal.add(Calendar.DAY_OF_YEAR, 1);
             }
-            Work work = new Work(cal);
+            Work work = new Work(cal, 14);
             this.bufferWork.add(work);
+            System.out.println("data of holiday: " + cal.getTime());
         }
     }
 }

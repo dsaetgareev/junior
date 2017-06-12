@@ -14,6 +14,7 @@ public class Counter {
      * method main.
      *
      * @param args - String[]
+     * @throws InterruptedException - exception
      */
     public static void main(String[] args) throws InterruptedException {
 

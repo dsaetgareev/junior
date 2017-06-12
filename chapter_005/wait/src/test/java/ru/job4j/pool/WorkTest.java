@@ -21,9 +21,9 @@ public class WorkTest {
      */
     @Test
     public void whenDateThenDayToWork() throws ParseException {
-        Work work = new Work(new GregorianCalendar(2017, 05, 05));
+        Work work = new Work(new GregorianCalendar(2017, 05, 05), 13);
 
-        Calendar dayToWork = new GregorianCalendar(2017, 05, 20);
+        Calendar dayToWork = new GregorianCalendar(2017, 05, 19);
 
         assertThat(work.calculateDate2(), is(dayToWork));
 
@@ -34,7 +34,7 @@ public class WorkTest {
      */
     @Test
     public void whenHolidaysThenCount() {
-        Work work = new Work(new GregorianCalendar(2017, 05, 05));
+        Work work = new Work(new GregorianCalendar(2017, 05, 05), 13);
 
         Calendar dayToWork = new GregorianCalendar(2017, 05, 20);
 

@@ -17,6 +17,8 @@ public class Work {
      * Holiday start date.
      */
     private Calendar calendar;
+
+    private final int countDay;
     /**
      * holidays.
      */
@@ -26,8 +28,10 @@ public class Work {
      * constructor.
      * @param calendar - new calendar
      */
-    public Work(Calendar calendar) {
+    public Work(Calendar calendar, int countDay)
+    {
         this.calendar = calendar;
+        this.countDay = countDay;
     }
 
     /**
@@ -39,12 +43,14 @@ public class Work {
             int count;
         System.out.println(Thread.currentThread().getName());
             Calendar newCalendar = (Calendar) this.calendar.clone();
-            newCalendar.add(Calendar.DAY_OF_YEAR, 14);
+            newCalendar.add(Calendar.DAY_OF_YEAR, this.countDay - 1);
             count = countHolidayInRang(this.calendar, newCalendar);
             if (count != 0) {
                 newCalendar.add(Calendar.DAY_OF_YEAR, count);
             }
-            System.out.println("Дата выхода на работу: " + newCalendar.getTime() + "\n");
+            System.out.println("Дата последнего дня отпуска: " + newCalendar.getTime() + "\n");
+        newCalendar.add(Calendar.DAY_OF_YEAR, 1);
+        System.out.println("Date first day of work: " + newCalendar.getTime());
             return newCalendar;
     }
 
