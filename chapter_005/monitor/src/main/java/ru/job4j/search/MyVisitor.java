@@ -20,7 +20,7 @@ public class MyVisitor extends SimpleFileVisitor {
     /**
      * boolean stop.
      */
-    private boolean stop;
+    private boolean stop = false;
 
     /**
      * constructor.
@@ -42,7 +42,7 @@ public class MyVisitor extends SimpleFileVisitor {
 
         FileVisitResult result;
        while (!stop) {
-            if (this.s != null && ((Path) file).getFileName().toString().contains(this.s)) {
+            if (this.s != null && ((Path) file).getFileName().toString().equals(this.s)) {
                 System.out.println(Thread.currentThread().getName());
                 System.out.println("I am walkVisitor, file: " + this.s + "  found!"
                         + "\nThe file is locate at: " + ((Path) file).getParent());

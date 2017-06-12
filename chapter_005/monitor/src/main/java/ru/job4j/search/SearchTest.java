@@ -18,7 +18,7 @@ public class SearchTest {
         Search search = new Search(s);
 
 
-        new Thread(new Searching(search, false)).start();
+        //new Thread(new Searching(search, false)).start();
         new Thread(new Searching(search, true)).start();
 
 
