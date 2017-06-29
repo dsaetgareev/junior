@@ -17,6 +17,7 @@
                  <module>monitor</module>
                  <module>wait</module>
                  <module>nonblock</module>
+                 <module>bomberman</module>
 	</modules>
 
 </project>
