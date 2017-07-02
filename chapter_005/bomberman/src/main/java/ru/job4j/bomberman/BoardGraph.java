@@ -53,7 +53,7 @@ public class BoardGraph extends JPanel implements ActionListener {
     /**
      * ExecutorsService.
      */
-    private ExecutorService service = Executors.newFixedThreadPool(100);
+    private ExecutorService service = Executors.newFixedThreadPool(6);
     /**
      * hero.
      */
