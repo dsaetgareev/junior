@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>c12d1ed3-0843-48a1-b438-3f7422dc2836.SCHEMA:job4j.public</OriginalElement>
+  <nodes>
+    <node x="182.0" y="125.0">c12d1ed3-0843-48a1-b438-3f7422dc2836.TABLE:job4j.public.users</node>
+    <node x="181.5" y="316.0">c12d1ed3-0843-48a1-b438-3f7422dc2836.TABLE:job4j.public.items</node>
+    <node x="303.41666666666663" y="507.0">c12d1ed3-0843-48a1-b438-3f7422dc2836.TABLE:job4j.public.comments</node>
+    <node x="100.41666666666663" y="507.0">c12d1ed3-0843-48a1-b438-3f7422dc2836.TABLE:job4j.public.att_files</node>
+    <node x="433.0" y="147.0">c12d1ed3-0843-48a1-b438-3f7422dc2836.TABLE:job4j.public.rights</node>
+    <node x="287.65625" y="0.0">c12d1ed3-0843-48a1-b438-3f7422dc2836.TABLE:job4j.public.roles</node>
+    <node x="647.0" y="158.0">c12d1ed3-0843-48a1-b438-3f7422dc2836.TABLE:job4j.public.statuses</node>
+    <node x="0.0" y="158.0">c12d1ed3-0843-48a1-b438-3f7422dc2836.TABLE:job4j.public.category</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="c12d1ed3-0843-48a1-b438-3f7422dc2836.TABLE:job4j.public.items" target="c12d1ed3-0843-48a1-b438-3f7422dc2836.TABLE:job4j.public.statuses">
+      <point x="77.33333333333333" y="-70.5" />
+      <point x="374.8333333333333" y="291.0" />
+      <point x="738.5" y="291.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="c12d1ed3-0843-48a1-b438-3f7422dc2836.TABLE:job4j.public.comments" target="c12d1ed3-0843-48a1-b438-3f7422dc2836.TABLE:job4j.public.items">
+      <point x="0.0" y="-48.5" />
+      <point x="414.91666666666663" y="482.0" />
+      <point x="355.5" y="482.0" />
+      <point x="58.0" y="70.5" />
+    </edge>
+    <edge source="c12d1ed3-0843-48a1-b438-3f7422dc2836.TABLE:job4j.public.users" target="c12d1ed3-0843-48a1-b438-3f7422dc2836.TABLE:job4j.public.roles">
+      <point x="0.0" y="-70.5" />
+      <point x="297.5" y="100.0" />
+      <point x="329.65625" y="100.0" />
+      <point x="-42.0" y="37.5" />
+    </edge>
+    <edge source="c12d1ed3-0843-48a1-b438-3f7422dc2836.TABLE:job4j.public.items" target="c12d1ed3-0843-48a1-b438-3f7422dc2836.TABLE:job4j.public.users">
+      <point x="1.4210854715202004E-14" y="-70.5" />
+      <point x="0.0" y="70.5" />
+    </edge>
+    <edge source="c12d1ed3-0843-48a1-b438-3f7422dc2836.TABLE:job4j.public.rights" target="c12d1ed3-0843-48a1-b438-3f7422dc2836.TABLE:job4j.public.roles">
+      <point x="0.0" y="-48.5" />
+      <point x="530.0" y="100.0" />
+      <point x="413.65625" y="100.0" />
+      <point x="42.0" y="37.5" />
+    </edge>
+    <edge source="c12d1ed3-0843-48a1-b438-3f7422dc2836.TABLE:job4j.public.items" target="c12d1ed3-0843-48a1-b438-3f7422dc2836.TABLE:job4j.public.category">
+      <point x="-77.33333333333331" y="-70.5" />
+      <point x="220.16666666666669" y="291.0" />
+      <point x="81.0" y="291.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="c12d1ed3-0843-48a1-b438-3f7422dc2836.TABLE:job4j.public.att_files" target="c12d1ed3-0843-48a1-b438-3f7422dc2836.TABLE:job4j.public.items">
+      <point x="0.0" y="-48.5" />
+      <point x="191.91666666666663" y="482.0" />
+      <point x="239.5" y="482.0" />
+      <point x="-58.0" y="70.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6089743589743589" x="346.16842105263163" y="407.15789473684214" />
+  <SelectedNodes>
+    <node>c12d1ed3-0843-48a1-b438-3f7422dc2836.TABLE:job4j.public.category</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+  </Categories>
+</Diagram>
+
