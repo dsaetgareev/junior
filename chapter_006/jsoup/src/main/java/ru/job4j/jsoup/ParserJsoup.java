@@ -14,7 +14,7 @@ import java.util.Locale;
  */
 public class ParserJsoup {
     /**
-     * loggera.
+     * logge.
      */
     private static final Logger Log = LoggerFactory.getLogger(ParserJsoup.class);
     /**
