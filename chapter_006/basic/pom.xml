@@ -11,8 +11,18 @@
 		<artifactId>chapter_006</artifactId>
 		<version>1.0</version>
 	</parent>
-		
-	<build>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.1.4</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
